@@ -24,14 +24,12 @@ body{
 #Container{
     background-image:url("images/Signin_Container.jpg") ;
     border-radius: 10px;
-    box-shadow: #ffe601;
     background-size: cover;
- 
+    min-height: 550px;
+    min-width: 1200px;
     z-index: 1;
-    height: 70%;
-    width: 40%;
-    min-width: 600px;
-    min-height: 600px;
+    height: 85%;
+    width: 53%;
 }
 h1{color: rgb(255, 255, 255);
     font-size: 3em;
@@ -82,18 +80,18 @@ input{
         background-color: rgb(255, 145, 0);
     }
 
-    h3{margin: 0px;}
-    
-    @media (max-width: 600px) {
-        #Container{
-            width: 100%;
-            min-width: 360px;
-        }
-    }
+h3{margin: 0px;}
 
-    @media (max-height: 600px) {
-        #Container{
-            height: 100%;
-            min-height: 300px;
-        }
+@media (max-width: 1200px) {
+    #Container{
+        width: 100%;
+        min-width: 360px;
     }
+}
+
+@media (max-height: 550px) {
+    #Container{
+        height: 100%;
+        min-height: 400px;
+    }
+}

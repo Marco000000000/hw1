@@ -1,220 +1,268 @@
 html{
-    font-size: 25px;
-  }
-  
-  
-  body{
-      color: white;
-    background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-  }
-  #overlay {
-    background-color:rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-   nav{
-    background-color:rgba(255, 255, 255, 0.7);
-    background-image:url("images/Signin_Container.jpg") ;
-    background-size: cover;
-    z-index: 5;
-    background-position:5%;
-    color: white;
-    font-size: .875rem;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-   
-  
-   
-  nav a {
-    display: flex;
-    height: 80%;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
-    padding:3px 2px;
-    border-radius: 3px;
-    border:3px transparent white;
-    border-style:groove;
+  font-size: 25px;
+}
+
+
+body{
+ 
+  margin: 0px;
     color: rgb(0, 0, 0);
-    text-decoration: none;
+  background-color: #e4e6eb;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    }
-  
-  #username div{
-    display: none;
-  }
-  #username:hover div{
-    display: flex;
-    position: fixed;
-    z-index: 5;
-    width: 10%;
-    height: 2rem;
-    top: 50px;
-    color: rgb(255, 255, 255);
-    right: 0;
-    font-size: .875rem;
-    padding: 10px;
-    display: flex;
-    justify-content: right;
-    align-items: top;
-  
-  }
-  #username:hover div a{
-    color: white;
-  }
-  #username:hover div a:hover{
-      
-    color:rgb(252, 138, 0)
-  }
-  #username:hover div a:active{
-      color:bisque
-  }
-  a:hover{
-    color:rgb(252, 138, 0)
-  }
-  a:active{
-    color: burlywood;
-  }
-  a{color:white}
-  form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-     margin-bottom: 0px;
-  }
-  label{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  input{
-    display: inline-block;
-    border-radius: 8px;
-    height: 100%;
-    line-height:100%;
-    padding:5px;
-  }
-  input{
-    margin-left: 0.5em;
-  }
-  article{
-   display: flex;
-   height: 100%;
-   align-items: top;
-   justify-content: space-between;
-  }
-  div{
-      display: flex;
-  }
-  img{padding: 2%;}
-  .totale{
-      width: 20%;
-  }
-  .divisore{
-   width: 70%;
-   height: 100%;
-  }
-  .articolo{
-    background-position: center;
-    background-image:url("images/Signin_Container.jpg") ;
-    background-size: cover;
-    border-radius: 10px;
-      border: 1px solid rgb(165, 164, 164);
-      margin:1%;
-      padding: 1%;
-      display: flex;
-      width: 100%;
-      height: 30%;
+    justify-content: center;   
       flex-direction: column;
-      justify-content: space-between;
+}
+#overlay {
+  background-color:rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+nav{
+  height: 50px;
+  width: 99%;
+  background-color:rgba(255, 255, 255, 1);
+  border-bottom: 1px black solid;
+  /*background-image:url("images/Signin_Container.jpg") ;*/
+  background-size: cover;
+  /*border-radius: 25px;*/
+  top:0%;
+  position: sticky;
+  z-index: 5;
+  background-position:5%;
+  color: white;
+  font-size: .875rem;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+
+ 
+nav a {
+  padding: 0 20px;
+  display: flex;
+  height: 80%;
   
+  border-radius: 5px;
+  /*border:1px solid rgb(0, 0, 0);
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.2);*/
+  margin:0px 4px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
   }
-  .venditore{
-      height: 100%;
-      padding:0px;
-      align-items: center;
-      justify-content: left;
-      margin:5px;
+  nav img{
+    z-index: 10;
+     height: 48px;
+    width: 48px;
+    border: 1px solid black;
+    border-radius: 24px;
+    padding: 0%;
   }
-  .header{
+  #right{
+    height: 100%;
+    align-items: center;
+  }
+  #icona{
+    margin-right: 20px;
+    font-size: 1.1rem;
+    z-index: 10;
+  }
+  #nav_hidden{background-color: white;}
+  #nav_hidden a{
+    
+    height: 48px;
+    
+  }
+
+#username{
+  height: 100%;
+  
+}
+#username #nav_hidden{
+  display: none;
+}
+#username:hover #nav_hidden{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  width: 100px;
+  height: fit-content;
+  top: 0px;
+  
+  color: rgb(255, 255, 255);
+  right: 0;
+  font-size: .875rem;
+  padding: 10px;
+  padding-top: 80px;
+  display: flex;
+  justify-content: right;
+  align-items: top;
+
+} 
+a:hover{
+  background-color:rgb(247, 247, 248);
+  
+  height: 100%;
+}
+a:active{
+  color: rgb(252, 138, 0);
+  border-color:rgb(252, 138, 0) ;
+}
+
+form{
+  position: sticky;
+  width: 568px;
+  left: calc(50vw - 284px);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1px solid black;
+  height: 48px;
+  margin-bottom: 0px;
+}
+svg{
+  padding: 1%;
+}
+label{
+  flex-wrap: wrap;
+  
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+input{
+  width: 400px;
+  display: inline-block;
+  border-radius: 10px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  height: 100%;
+  line-height:100%;
+  padding:5px;
+  border-width: 0px;
+}
+input:focus{
+outline: none;}
+form:hover{
+  border-width: 2px;
+  border-color: grey;
+ }
+form:focus{
+  outline: rgb(252, 138, 0);
+  border:2px solid rgb(252, 138, 0);
+}
+
+article{
+  flex-wrap: wrap;
+  width: 100%;
+ display: flex;
+ height: 100%;
+ align-items: top;
+ justify-content: space-around;
+}
+div{
     display: flex;
+}
+img{padding: 2%;}
+
+.descrizione img{
+  height: 30vh;
+  width: 30vh;
+}
+.divisore{
+ width: 45%;
+ height: fit-content;
+}
+.articolo{
+  background-position: center;
+  /*background-image:url("images/Signin_Container.jpg") ;*/
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  border-radius: 10px;
+    border: 1px solid rgb(165, 164, 164);
+    margin:1%;
     padding: 1%;
-    height: 20%;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.venditore{
+    height: 100%;
+    padding:0px;
     align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgb(165, 164, 164);
-  }
-  .venditore img{
-      height: 100%;
-  }
-  .venditore p{
-      
-      margin:0px;
-      padding :0px 5px;
-  }
-  .oggetto{
-      align-items: top;
-      height: 70%;
-      padding:1%;
-      justify-content: space-between;
-  }
-  .descrizione{
-      width: 80%;
-  }
-  .prezzo{
-      width: 15%;
-      flex-direction: column;
-  }
-  .opzioni{
-      height: 100%;
-      font-size: 30px;
-  }
-  .opzioni p{
-      margin: 0px;
-      padding: 5px;
-  }
-  
-  
-  @media (max-width: 800px) {
-    article{
-      width: 98%;
-    }
-    article section {
-      border:5px solid rgba(0, 0, 0,0.2);
-    }
-    .img{
-      margin: 5px;
-      background-size: cover;
-    }
-  
-   
-  
-    html{
-      font-size: 20px;
-    }
+    justify-content: left;
+    margin:5px;
+}
+.venditore img{ 
+  border-radius: 50%;
+}
+.header{
+  display: flex;
+  padding: 1%;
+  height: 20%;
+  align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(165, 164, 164);
+}
+.venditore img{
+    height: 100%;
+}
+.venditore p{
     
+    margin:0px;
+    padding :0px 5px;
+}
+.oggetto{
+    align-items: top;
+    height: 70%;
+    padding:1%;
+    justify-content: space-between;
+}
+.descrizione{
+    width: 80%;
+}
+.prezzo{
+    width: 15%;
+    padding: 1%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.opzioni{
+    height: 100%;
     
-    header{
-      position: relative;
-      height: 40vh;
-    }
-  
-  }
-      
-  
-                                                                     
-  
-  
-  
-  
-  
-  
+}
+.opzioni p{
+    margin: 0px;
+    padding: 5px;
+}
+p{margin: 0px;
+  font-size: 3.5vh;}
+
+@media (max-width: 800px) {
+ 
+
+}
+    
+
+                                                                   
+
+
+
+
+
