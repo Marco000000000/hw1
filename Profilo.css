@@ -336,6 +336,24 @@ html{
       border: 1px black solid;
       border-radius: 50%;
 }
+.scelta{
+    justify-content: space-evenly;
+    width: 100%;
+    margin:1%;
+    margin-bottom: 0;
+    border-radius: 10px;
+    border: 1px black solid;
+}
+#pub{
+    
+    border-right: 1px solid black;
+}
+.scelta div{width: 50%;
+justify-content: center;    
+}
+.scelta div:hover{
+    background-color:rgb(247, 247, 248)
+}
 
   @media (max-width: 650px) {
     article{
