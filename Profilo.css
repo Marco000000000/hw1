@@ -345,14 +345,23 @@ html{
     border: 1px black solid;
 }
 #pub{
-    
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
     border-right: 1px solid black;
 }
+#like{
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
 .scelta div{width: 50%;
+  
 justify-content: center;    
 }
 .scelta div:hover{
-    background-color:rgb(247, 247, 248)
+    background-color:rgb(247, 247, 248);
+}
+.scelta div:active{
+  background-color:rgba(247, 181, 100,0.5);
 }
 
   @media (max-width: 650px) {
