@@ -115,8 +115,8 @@ html{
     height: 100%;
   }
   a:active{
-    color: rgb(252, 138, 0);
-    border-color:rgb(252, 138, 0) ;
+    background-color: orange;
+    height: 100%;
   }
   
   form{
@@ -182,7 +182,7 @@ html{
     background-color: white;
     color: black;
     margin-top: 5px;
-    border: 1px black solid;
+    border: 1px rgb(160, 160, 160) solid;
     border-radius: 10px;
     width: 100%;
     height:fit-content;
@@ -215,7 +215,7 @@ html{
   .bordo{
     padding: 2%;
     margin: 0px;
-    border: 1px solid grey;
+    border: 1px rgb(160, 160, 160) solid;
     border-radius: 10px;
     display: flex;
     height: 400px;
@@ -309,18 +309,21 @@ html{
   button{
       
       height: 40px;
-      width: 60px;
+      width: 60;
       background-color: #0095f6;
-      color: white;
+      background-color:rgba(250, 178, 44,0.9);
+      color: rgb(29, 29, 29);
+      background-color: rgba(228, 230, 235,0.8); 
+      /*background-color: white;*/
       border-width: 1px;
       border-radius: 5px;
       font-size: .7rem;
   }
   button:hover{
-      background-color: #3ba9f1;
+      background-color: rgba(247, 181, 100,0.5);
   }
   button:active{
-    background-color: #0095f6;
+    background-color: orange;
 }
   .profilo{
 
@@ -342,16 +345,20 @@ html{
     margin:1%;
     margin-bottom: 0;
     border-radius: 10px;
-    border: 1px black solid;
+     
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    
+     
 }
 #pub{
   border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-    border-right: 1px solid black;
+  
+   /* border-right: 1px solid black;*/
 }
 #like{
   border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  
 }
 .scelta div{width: 50%;
   
@@ -360,8 +367,9 @@ justify-content: center;
 .scelta div:hover{
     background-color:rgb(247, 247, 248);
 }
-.scelta div:active{
-  background-color:rgba(247, 181, 100,0.5);
+.scelta div:active{/*
+  background-color:rgba(247, 181, 100,0.5);*/
+  background-color:orange;
 }
 
   @media (max-width: 650px) {
