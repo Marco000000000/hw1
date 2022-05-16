@@ -82,6 +82,12 @@ input{
 
 h3{margin: 0px;}
 
+.hidden{
+    display:none;
+}
+.errore{
+    color:red;
+}
 @media (max-width: 1200px) {
     #Container{
         width: 100%;

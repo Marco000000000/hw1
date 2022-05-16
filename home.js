@@ -48,7 +48,8 @@ url2="https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=fin
 
 
 
-
+pulsanti=document.querySelectorAll(".schermo_intero");
+console.log(pulsanti);
 
 
 
