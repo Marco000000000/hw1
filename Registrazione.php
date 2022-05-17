@@ -14,22 +14,22 @@
     <div id="Container">
         <div id="overlay">
             <h1>Registrati</h1>
-            <div>
-            <p id="errore_utente" class="hidden errore">Il nome utente non può contenere caratteri speciali</p>
-            <p id="errore_conferma" class="hidden errore">Le password non coincidono</p>
-            <p id="errore_password" class="hidden errore">La Password deve contenere almeno un numero ed una lettera</p>
-        </div>
+            <div class="errori">
+                <p id="errore_utente" class="hidden errore">Il nome utente non può contenere caratteri speciali</p>
+                <p id="errore_conferma" class="hidden errore">Le password non coincidono</p>
+                <p id="errore_password" class="hidden errore">La Password deve contenere almeno un numero ed una lettera</p>
+            </div>
     
             <form action="" method="post">
-        <label><input type="text" placeholder="Nome Utente" name="utente" required></label>
-        <label><input type="email" placeholder="Email" name="Email" required></label>
-        <label><input type="password" placeholder="Password" name="password" required></label>
-        <label><input id="conferma" type="password" placeholder="Conferma Password" required></label>
-        <label id="submit"><input type="submit" value="Registrazione"></label>
-    </form>
-    <a href="Login.php"> <h3>Hai gia'un account?<br>Accedi</h3></a>
+                <label><input type="text" placeholder="Nome Utente" name="utente" required></label>
+                <label><input type="email" placeholder="Email" name="Email" required></label>
+                <label><input type="password" placeholder="Password" name="password" required></label>
+                <label><input id="conferma" type="password" placeholder="Conferma Password" required></label>
+                <label id="submit"><input type="submit" value="Registrazione"></label>
+            </form>
+            <a href="Login.php"> <h3>Hai gia'un account?<br>Accedi</h3></a>
 
-    </div>
+        </div>
     </div>
  
 
