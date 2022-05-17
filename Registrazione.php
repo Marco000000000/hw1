@@ -9,21 +9,22 @@
     <link rel="stylesheet" href="Registrazione.css">
     <script src="Registrazione.js" defer="true"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./Registrazione_files/css2"></head>
-<body>
+ <body>
     
     <div id="Container">
         <div id="overlay">
             <h1>Registrati</h1>
-            <p id="utente" class="hidden errore">Il nome utente non può contenere caratteri speciali</p>
-            <p class="hidden errore">Le password non coincidono</p>
-            <p class="hidden errore">Email non valida</p>
-            <p class="hidden errore">La Password deve contenere almeno un numero ed una lettera</p>
-    <form action="home.php" method="post">
-        <label><input type="text" placeholder="Nome Utente" name="utente"></label>
-        <label><input type="text" placeholder="Email" name="Email"></label>
-        <label><input type="password" placeholder="Password" name="password"></label>
-        <label><input type="password" placeholder="Conferma Password"></label>
+            <div>
+            <p id="errore_utente" class="hidden errore">Il nome utente non può contenere caratteri speciali</p>
+            <p id="errore_conferma" class="hidden errore">Le password non coincidono</p>
+            <p id="errore_password" class="hidden errore">La Password deve contenere almeno un numero ed una lettera</p>
+        </div>
+    
+            <form action="" method="post">
+        <label><input type="text" placeholder="Nome Utente" name="utente" required></label>
+        <label><input type="email" placeholder="Email" name="Email" required></label>
+        <label><input type="password" placeholder="Password" name="password" required></label>
+        <label><input id="conferma" type="password" placeholder="Conferma Password" required></label>
         <label id="submit"><input type="submit" value="Registrazione"></label>
     </form>
     <a href="Login.php"> <h3>Hai gia'un account?<br>Accedi</h3></a>
