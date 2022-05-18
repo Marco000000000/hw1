@@ -50,9 +50,9 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
                         {   
                             $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
 
-                            $utente=mysqli_real_escape_string($_POST["utente"]);
-                            $password=mysqli_real_escape_string($_POST["password"]);
-                            $email=mysqli_real_escape_string($_POST["email"]);
+                            $utente=mysqli_real_escape_string($conn,$_POST["utente"]);
+                            $password=mysqli_real_escape_string($conn,$_POST["password"]);
+                            $email=mysqli_real_escape_string($conn,$_POST["email"]);
                             $insert="INSERT INTO profilo (`Username`, `Password`, `Email`) VALUES ('".($utente)."', '".($password)."', '".($email)."')";
                             
                             $usernameControl="SELECT * FROM `profilo` WHERE Username='".($utente)."';";
