@@ -46,8 +46,8 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
                         $num="0123456789";
                         $letters="abcdefghijklmnopqrstuvwxyz";
 
-                        if((!contains($_POST["utente"],$specialChars))&& ((contains(strtolower($_POST["password"]),$num))&&(contains(strtolower($_POST["password"]),$letters))))
-                        {   //non utilizzo mysqli_real_escape_string sui campi poichè
+                        if((!contains($_POST["utente"],$specialChars))&& ((contains($_POST["password"],$num))&&(contains(strtolower($_POST["password"]),$letters))))
+                        {   
                             $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
 
                             $utente=mysqli_real_escape_string($_POST["utente"]);

@@ -36,7 +36,7 @@ function controlloutente(event){
     event.preventDefault();
     return;
     }
-    if((!contains(inserimentoPassword.toLowerCase(),num))||(!contains(inserimentoPassword.toLowerCase(),letters)))
+    if((!contains(inserimentoPassword,num))||(!contains(inserimentoPassword.toLowerCase(),letters)))
     {
     errori[1].classList.remove("hidden");
     event.preventDefault();
