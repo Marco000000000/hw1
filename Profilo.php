@@ -21,7 +21,7 @@ if(!isset($_SESSION["username"]))
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Profilo.css">
-    <script src="home.js" defer="true"></script>
+    <script src="Profilo.js" defer="true"></script>
 
 </head>
 <body>
@@ -61,7 +61,10 @@ if(!isset($_SESSION["username"]))
   
     <header>
         <div class="profilo">
-            <img src="images/img.webp">
+            <form target="_myFrame" action="">
+            <label><input class="hidden" name="foto" type="file"></input><img src="images/img.webp"></label>
+            
+            </form>
             <div class="dati">
                 <h1>Marco Finocchiaro</h1>
                 <div class="segui">
