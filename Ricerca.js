@@ -2,6 +2,10 @@ function onResponse(response)
 {
     return response.json();
 }
+function onResponse1(response)
+{
+    return response.json();
+}
 
 function onError(error) 
 {
@@ -11,7 +15,8 @@ function onError(error)
 
 function onJson(json)
 { console.log(json);
-    
+    let article=document.querySelector("article");
+    article.innerHTML="";
     for(let i=0;i<json.inline_shopping_results.length;i++)
     {
         let price=json.inline_shopping_results[i].extracted_price+"€";
@@ -19,8 +24,8 @@ function onJson(json)
         let thumbnail=json.inline_shopping_results[i].thumbnail;
         let link=json.inline_shopping_results[i].link;
         let source=json.inline_shopping_results[i].source;
-        let article=document.querySelector("article");
-
+        
+        
 /*
         let select=document.createElement("select");
         select.name="quantita";*/
@@ -39,7 +44,10 @@ function onJson(json)
         let div_descrizione=document.createElement("div");
         let div_oggetto=document.createElement("div");
         let p_opzioni=document.createElement("p");
+        p_opzioni.classList.add("carrello");
         p_opzioni.textContent=( "🛒");
+        p_opzioni.addEventListener("click",onClick);
+
         let div_opzioni=document.createElement("div");
         let p_venditore=document.createElement("p");
         p_venditore.textContent=(source);
@@ -85,8 +93,27 @@ function onJson(json)
         article.appendChild(div_divisore);
     }
 }
+function onText(text)
+{
+console.log(text);
+}
 
+function onClick(event)
+{   let target=event.currentTarget;
+    target.textContent="✅";
+    let prezzo=target.closest(".articolo ").querySelector(".prezzo p").textContent;
+    let descrizione=target.closest(".articolo ").querySelector(".descrizione  div p").textContent;
+    let venditore=target.closest(".articolo ").querySelector(".venditore p").textContent;
+    let img=target.closest(".articolo ").querySelector("img").src;
+    let link=target.closest(".articolo ").querySelector("a").href;
+    fetch("InserimentoCarrello.php?"+"prezzo="+prezzo+"&descrizione="+descrizione+
+    "&venditore="+venditore+
+    "&img="+encodeURIComponent(img)+
+    "&link="+encodeURIComponent(link)).then(onResponse1,onError).then(onText);
+    //closest("div")
 
-
+}
 
 fetch("Curl.php").then(onResponse,onError).then(onJson);
+
+

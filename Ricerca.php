@@ -13,14 +13,12 @@ if(!isset($_SESSION["username"]))
         
     }
 
-    if(!isset($_POST["prodotto"]))
+    if(isset($_POST["cerca"]))
     {
-        header("Location: carrello.php");
-            exit;
+        setcookie("cerca",$_POST["cerca"]);
+          
     }
-    else{
-        setcookie("prodotto",$_POST["prodotto"]);
-    }
+   
 
     ?>
 
@@ -42,7 +40,7 @@ if(!isset($_SESSION["username"]))
              
         <a href="home.php"><div>Home</div> </a>
       
-     <form action="Ricerca.php">
+     <form action="" method="post">
         <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm10.45 2.95L16 16l4.95 4.95Z" class="icon_svg-stroke" stroke="#666" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
          <label> <input type="text" placeholder="Cerca prodotto" name="cerca"></label>
