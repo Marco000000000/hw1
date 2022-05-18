@@ -1,3 +1,26 @@
+<?php
+session_start();
+if(!isset($_SESSION["username"]))
+    {
+        if(!isset($_COOKIE["username"])){
+
+            header("Location: index.php");
+            exit;
+        }
+        else{
+            $_SESSION["username"]= $_COOKIE["username"];
+        }
+        
+    }
+
+    if(!isset($_POST["prodotto"]))
+    {
+        header("Location: carrello.php");
+            exit;
+    }
+
+    ?>
+
 <html>
 
 <head>
@@ -22,7 +45,7 @@
          <label> <input type="text" placeholder="Cerca prodotto" name="cerca"></label>
       </form>
      <!--<div >
-         <a href="Login.php"> Accedi </a>
+         <a href="logout.php"> Accedi </a>
          <a href="Registrazione.php"> Registrati</a>
       </div>
      -->
@@ -33,8 +56,8 @@
          <a id="icona" href="Carrello.php">🛒        </a>
          <div id="username"> <img src="images/img.webp">
              <div id="nav_hidden">
-                <a href="Profilo.php">Nickname</a>
-                 <a   href="Login.php">Logout</a> 
+                <a href="Profilo.php"><?php echo $_SESSION['username'];?></a>
+                 <a   href="logout.php">Logout</a> 
              </div>
          
          </div>
@@ -48,6 +71,10 @@
         
     
     <article>
+
+        
+
+        
         <div class="divisore">
          <section class="articolo" >
 
@@ -58,13 +85,12 @@
                 <div class="opzioni">
                    
                     <p> 🛒</p>
-                    <!--❤️-->
                 </div>
             </div>
 
             <div class="oggetto">
                 <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
+                    <a href="" target="_blank"><img src="images/arduino_uno_r3.webp"></a>
                     <div>
                         
                         <p>oggetto</p>
@@ -93,6 +119,8 @@
 
          </section>
         </div>
+        
+
         <div class="divisore">
             <section class="articolo" >
    
@@ -109,7 +137,7 @@
    
                <div class="oggetto">
                    <div class="descrizione ">
-                       <img src="images/arduino_uno_r3.webp">
+                   <a href="" target="_blank"><img src="images/arduino_uno_r3.webp"></a>
                        <div>
                            
                            <p>oggetto</p>
@@ -154,7 +182,7 @@
    
                <div class="oggetto">
                    <div class="descrizione ">
-                       <img src="images/arduino_uno_r3.webp">
+                   <a href=""><img src="images/arduino_uno_r3.webp"></a>
                        <div>
                            
                            <p>oggetto</p>
@@ -199,7 +227,7 @@
    
                <div class="oggetto">
                    <div class="descrizione ">
-                       <img src="images/arduino_uno_r3.webp">
+                   <a href=""><img src="images/arduino_uno_r3.webp"></a>
                        <div>
                            
                            <p>oggetto</p>
@@ -246,7 +274,7 @@
    
                <div class="oggetto">
                    <div class="descrizione ">
-                       <img src="images/arduino_uno_r3.webp">
+                   <a href=""><img src="images/arduino_uno_r3.webp"></a>
                        <div>
                            
                            <p>oggetto</p>

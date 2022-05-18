@@ -1,19 +1,15 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"]))
+if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
     {
-        if(!isset($_COOKIE["username"])){
+       
 
-            header("Location: index.php");
+            header("Location: home.php");
             exit;
-        }
-        else{
-            $_SESSION["username"]= $_COOKIE["username"];
-        }
+       
         
     }
     ?>
-
 <html>
 
 <head>
@@ -21,7 +17,7 @@ if(!isset($_SESSION["username"]))
         Home
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home_unlog.css">
     <script src="home.js" defer="true"></script>
 
 </head>
@@ -47,10 +43,10 @@ if(!isset($_SESSION["username"]))
      
      <div id="right">
          <a id="icona" href="Carrello.php">🛒        </a>
-         <div id="username"> <img src="images/img.webp">
+         <div id="username"> <img src="images/profilo-vuoto.png">
              <div id="nav_hidden">
-                <a href="Profilo.php"><?php echo $_SESSION['username'];?></a>
-                 <a   href="logout.php">Logout</a> 
+                <a href="login.php"> Accedi </a>
+                <a href="Registrazione.php"> Registrati</a>
              </div>
          
          </div>
@@ -76,10 +72,10 @@ if(!isset($_SESSION["username"]))
                 <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
             </div>
              <div class="carrello">
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
+                <img src="images/arduino_uno_r3.webp">
+                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
+                <img src="images/esp32-wroom.jpg">
+                <img src="images/arduino_uno_r3.webp">
                 
              </div>
              </div>
@@ -88,7 +84,7 @@ if(!isset($_SESSION["username"]))
                     <p>150</p>
                <p>🤍</p>
                 </div>
-                <img class="schermo_intero" src="images/Schermo_Intero.png">
+                <a ><img src="images/Schermo_Intero.png"></a>
                 
              </div>
          </section>
@@ -106,17 +102,15 @@ if(!isset($_SESSION["username"]))
                <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
            </div>
             <div class="carrello">
-
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                <a><img src="images/arduino_uno_r3.webp"></a>
-                
+                <img src="images/arduino_uno_r3.webp">
+                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
+                <img src="images/esp32-wroom.jpg">
+                <img src="images/arduino_uno_r3.webp">
+                <img src="images/arduino_uno_r3.webp">
+                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
+                <img src="images/esp32-wroom.jpg">
+                <img src="images/arduino_uno_r3.webp">
+               
             </div>
             </div>
             <div class="opzioni">
@@ -124,7 +118,7 @@ if(!isset($_SESSION["username"]))
                     <p>150</p>
                <p>🤍</p>
                 </div>
-                <img class="schermo_intero" src="images/Schermo_Intero.png">
+                <a ><img src="images/Schermo_Intero.png"></a>
                 
                 </div>
                

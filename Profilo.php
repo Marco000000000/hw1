@@ -1,3 +1,18 @@
+<?php
+session_start();
+if(!isset($_SESSION["username"]))
+    {
+        if(!isset($_COOKIE["username"])){
+
+            header("Location: index.php");
+            exit;
+        }
+        else{
+            $_SESSION["username"]= $_COOKIE["username"];
+        }
+        
+    }
+    ?>
 <html>
 
 <head>
@@ -22,7 +37,7 @@
          <label> <input type="text" placeholder="Cerca carrello" name="cerca"></label>
       </form>
      <!--<div >
-         <a href="Login.php"> Accedi </a>
+         <a href="logout.php"> Accedi </a>
          <a href="Registrazione.php"> Registrati</a>
       </div>
      -->
@@ -33,8 +48,8 @@
          <a id="icona" href="Carrello.php">🛒        </a>
          <div id="username"> <img src="images/img.webp">
              <div id="nav_hidden">
-                <a>Nickname</a>
-                 <a   href="Login.php">Logout</a> 
+                <a><?php echo $_SESSION['username'];?></a>
+                 <a   href="logout.php">Logout</a> 
              </div>
          
          </div>

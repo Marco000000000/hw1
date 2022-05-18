@@ -13,13 +13,14 @@ function contains(str,chars) {
 
 
 function controlloutente(event){
-    const specialChars = "/[`!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;"
+    const specialChars = "/ [`!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;"
     const num="0123456789";
     const letters="abcdefghijklmnopqrstuvwxyz";
     let inserimentoUtente=utente.value;
     let inserimentoPassword=password.value;
     let inserimentoConferma=conferma.value;
-    const errori= [document.querySelector("#errore_utente"),document.querySelector("#errore_password"),document.querySelector("#errore_conferma")];
+    let inserimentoEmail=email.value;
+    const errori= [document.querySelector("#errore_utente"),document.querySelector("#errore_password"),document.querySelector("#errore_conferma"),document.querySelector("#errore_lunghezza")];
     for(let i=0;i<errori.length;i++)
     {
         if(!errori[i].classList.contains("hidden"))
@@ -28,21 +29,31 @@ function controlloutente(event){
         }
     }
     console.log(inserimentoUtente);
+    
     if(contains(inserimentoUtente,specialChars))
     {
     errori[0].classList.remove("hidden");
     event.preventDefault();
+    return;
     }
     if((!contains(inserimentoPassword.toLowerCase(),num))||(!contains(inserimentoPassword.toLowerCase(),letters)))
     {
     errori[1].classList.remove("hidden");
     event.preventDefault();
+    return;
     }
 
     if(inserimentoPassword!=inserimentoConferma)
     {
     errori[2].classList.remove("hidden");
     event.preventDefault();
+    return;
+    }
+    if(inserimentoUtente.length>20||inserimentoPassword.length>30||inserimentoEmail.length>50)
+    {
+        errori[3].classList.remove("hidden");
+        event.preventDefault();
+        return; 
     }
 
 
@@ -55,6 +66,7 @@ function controlloutente(event){
 
 let utente=document.querySelector('input[name="utente"]');
 let password=document.querySelector('input[name="password"]')
+let email=document.querySelector('input[name="email"]')
 let conferma=document.querySelector('#conferma')
 console.log(utente);
 document.querySelector('form').addEventListener("submit",controlloutente);

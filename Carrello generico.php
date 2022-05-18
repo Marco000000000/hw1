@@ -22,7 +22,7 @@
          <label> <input type="text" placeholder="Cerca prodotto" name="cerca"></label>
       </form>
      <!--<div >
-         <a href="Login.php"> Accedi </a>
+         <a href="logout.php"> Accedi </a>
          <a href="Registrazione.php"> Registrati</a>
       </div>
      -->
@@ -34,7 +34,7 @@
          <div id="username"> <img src="images/img.webp">
              <div id="nav_hidden">
                 <a href="Profilo.php">Nickname</a>
-                 <a   href="Login.php">Logout</a> 
+                 <a   href="logout.php">Logout</a> 
              </div>
          
          </div>
