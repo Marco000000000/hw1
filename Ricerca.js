@@ -101,7 +101,7 @@ console.log(text);
 
 function onClick(event)
 {   let target=event.currentTarget;
-    target.textContent="✅";
+    target.textContent="✔";
     let prezzo=target.closest(".articolo ").querySelector(".prezzo p").textContent;
     let descrizione=target.closest(".articolo ").querySelector(".descrizione  div p").textContent;
     let venditore=target.closest(".articolo ").querySelector(".venditore p").textContent;
