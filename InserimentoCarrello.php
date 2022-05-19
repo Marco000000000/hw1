@@ -1,39 +1,40 @@
 <?php
 
-echo json_encode($_GET) ;
-/*
-if(isset($_POST["utente"])&&isset($_POST["password"])&&isset($_POST["email"]))   
+//echo json_encode($_GET) ;
+echo $_GET["user"];
+
+
+if(isset($_GET["descrizione"])&&isset($_GET["img"])&&isset($_GET["link"])&&isset($_GET["prezzo"])&&isset($_GET["venditore"]))   
 {
-    
+    echo $_GET["descrizione"];
     $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-
-    $utente=mysqli_real_escape_string($_POST["utente"]);
-    $password=mysqli_real_escape_string($_POST["password"]);
-    $email=mysqli_real_escape_string($_POST["email"]);
-    $insert="INSERT INTO prodotti ('carrello', 'prezzo', 'titolo','url','UrlImg','Venditore') VALUES ('".($_POST["carrello"])."', '".($_POST["prezzo"])."', '".($_POST["titolo"])."', '".($_POST["titolo"])."')";
+    $user=mysqli_real_escape_string($conn,$_GET["user"]);
+    $descrizione=mysqli_real_escape_string($conn,$_GET["descrizione"]);
+    $img=mysqli_real_escape_string($conn,$_GET["img"]);
+    $link=rtrim(mysqli_real_escape_string($conn,$_GET["link"]), "€");
+    $prezzo=mysqli_real_escape_string($conn,$_GET["prezzo"]);
+    $venditore=mysqli_real_escape_string($conn,$_GET["venditore"]);
     
-    $usernameControl="SELECT * FROM `profilo` WHERE Username='".($utente)."';";
-    $emailControl="SELECT * FROM `profilo` WHERE Email='".($email)."';";
-    $controluser=(mysqli_num_rows(mysqli_query($conn, $usernameControl))==0); 
-    $controlemail=(mysqli_num_rows(mysqli_query($conn, $emailControl))==0); 
+    $insert_prod="INSERT INTO `prodotti` (`url`, `Venditore`, `titolo`, `prezzo`, `UrlImg`) VALUES ('".$link."', '".$venditore."', '".$descrizione."', '".$prezzo."', '".$img."')";
+
+    $query="SELECT carrelloCorrente from profilo where Username='".$user."'";
+    $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+    echo "dopores";
+    $row=mysqli_fetch_assoc($res);
+    $row=$row["carrelloCorrente"];
+    echo json_encode($row);
+    $insert_prod_carr="INSERT INTO `prodotto-carrello` (`prodotto`, `carrello`) VALUES ('".$link."', '".$row."')";
     // print_r($controluser);
-    //print_r($controlemail);
-
-    
-    if($controluser&&$controlemail)
-    {
+    //print_r($controlema
     //print_r($insert);
-    mysqli_query($conn, $insert)or die("Errore:".mysqli_error($conn));
-    //print_r($_POST);
-    }
-    else
-    {
-        echo '<p id="errore_registrato" class="errore">Nome utente o email già registrati</p>';
-    }
+    echo mysqli_query($conn, $insert_prod) or die("Errore:".mysqli_error($conn));
+    //print_r($_GET);
+    echo mysqli_query($conn, $insert_prod_carr)or die("Errore:".mysqli_error($conn));
+
     mysqli_close($conn);
 
        
     
 
-}*/
+}
 ?>              

@@ -4,7 +4,7 @@ function onResponse(response)
 }
 function onResponse1(response)
 {
-    return response.json();
+    return response.text();
 }
 
 function onError(error) 
@@ -106,9 +106,11 @@ function onClick(event)
     let venditore=target.closest(".articolo ").querySelector(".venditore p").textContent;
     let img=target.closest(".articolo ").querySelector("img").src;
     let link=target.closest(".articolo ").querySelector("a").href;
+    let user=document.querySelector("a[href='Profilo.php']").textContent;
     fetch("InserimentoCarrello.php?"+"prezzo="+prezzo+"&descrizione="+descrizione+
     "&venditore="+venditore+
     "&img="+encodeURIComponent(img)+
+    "&user="+encodeURIComponent(user)+
     "&link="+encodeURIComponent(link)).then(onResponse1,onError).then(onText);
     //closest("div")
 
