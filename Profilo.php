@@ -12,6 +12,25 @@ if(!isset($_SESSION["username"]))
         }
         
     }
+
+
+    if(isset($_FILES["foto"])&&$_FILES["foto"]["type"]=="jpg")
+        {
+            
+        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+        $username=$_SESSION["username"];
+        echo $_FILES["foto"];
+        $dati_file=$_FILES["foto"]["tmp_name"];
+        $dati_file = file_get_contents($username);
+
+// Preparo il contenuto del file per la query sql
+        $dati_file = addslashes($dati_file);
+        $query="UPDATE `profilo` SET `ImmagineProfilo` = $dati_file WHERE `Username` =$username";
+        $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+        
+        }
+
+        
     ?>
 <html>
 
@@ -58,7 +77,7 @@ if(!isset($_SESSION["username"]))
 
  </nav>
 
-  
+ 
     <header>
         <div class="profilo">
             <form target="_myFrame" action="">
@@ -66,7 +85,7 @@ if(!isset($_SESSION["username"]))
             
             </form>
             <div class="dati">
-                <h1>Marco Finocchiaro</h1>
+                <h1> <?php if(isset($_GET["foto"])) echo $_GET["foto"];?>Marco Finocchiaro</h1>
                 <div class="segui">
                     <p>200 seguaci</p>
                     <button><strong>Segui</strong></button>
