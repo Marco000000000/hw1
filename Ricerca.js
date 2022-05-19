@@ -15,15 +15,16 @@ function onError(error)
 
 function onJson(json)
 { console.log(json);
+    let results=json.shopping_results;
     let article=document.querySelector("article");
     article.innerHTML="";
-    for(let i=0;i<json.inline_shopping_results.length;i++)
+    for(let i=0;i<results.length;i++)
     {
-        let price=json.inline_shopping_results[i].extracted_price+"€";
-        let title=json.inline_shopping_results[i].title;
-        let thumbnail=json.inline_shopping_results[i].thumbnail;
-        let link=json.inline_shopping_results[i].link;
-        let source=json.inline_shopping_results[i].source;
+        let price=results[i].extracted_price+"€";
+        let title=results[i].title;
+        let thumbnail=results[i].thumbnail;
+        let link=results[i].link;
+        let source=results[i].source;
         
         
 /*
