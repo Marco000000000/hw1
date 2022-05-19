@@ -65,27 +65,39 @@ if(!isset($_SESSION["username"]))
         
     
     <article>
+        
         <div class="divisore">
-         <section class="articolo" >
+        <?php 
+
+        
+        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+        $username=$_SESSION["username"];
+
+        $query='SELECT * FROM `prodotti` JOIN `prodotto-carrello` on( url=prodotto) JOIN carrello on(id=carrello) WHERE proprietario="'.$username.'"';
+        $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+
+        foreach( $res as $row)
+        {    
+
+         echo '<section class="articolo" >
 
             <div class="header">
                 <div class="venditore">
-                <p>venditore</p>
+                <p>'.$row["Venditore"].'</p>
                 </div>
                 <div class="opzioni">
                     <p>	
                         🗑️ </p>
                     
-                    <!--❤️-->
                 </div>
             </div>
 
             <div class="oggetto">
                 <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
+                    <img src="'.$row["UrlImg"].'">
                     <div>
                         
-                        <p>oggetto</p>
+                        <p>'.$row["titolo"].'</p>
                     </div>
                     
                     
@@ -93,202 +105,30 @@ if(!isset($_SESSION["username"]))
                 <div class="prezzo">
                 <p>quantità  
                     <select name="quantita">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select></p>
-                <p>prezzo</p>
+                    ';
+                    for($i=1;$i<10;$i++)
+                    {
+                        if($row["quantita"]==$i)
+                        echo '<option selected value="'.$i.'">'.$i.'</option>';
+                        else 
+                        echo '<option value="'.$i.'">'.$i.'</option>';
+
+                    }
+                    echo '</select></p>
+                <p>'.$row["prezzo"].'€</p>
                 </div>
             </div>
 
             
 
-         </section>
-         <section class="articolo" >
+         </section>';
+        }
 
-            <div class="header">
-                <div class="venditore">
-                <p>venditore</p>
-                </div>
-                <div class="opzioni">
-                    <p>	
-                        🗑️ </p>
-                    
-                    <!--❤️-->
-                </div>
-            </div>
+        mysqli_close($conn);
 
-            <div class="oggetto">
-                <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
-                    <div>
-                        
-                        <p>oggetto</p>
-                    </div>
-                    
-                    
-                </div>
-                <div class="prezzo">
-                <p>quantità  
-                    <select name="quantita">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select></p>
-                <p>prezzo</p>
-                </div>
-            </div>
-
-            
-
-         </section>
-         <section class="articolo" >
-
-            <div class="header">
-                <div class="venditore">
-                 
-                <p>venditore</p>
-                </div>
-                <div class="opzioni">
-                    <p>	
-                        🗑️ </p>
-                    
-                    <!--❤️-->
-                </div>
-            </div>
-
-            <div class="oggetto">
-                <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
-                    <div>
-                        
-                        <p>oggetto</p>
-                    </div>
-                    
-                    
-                </div>
-                <div class="prezzo">
-                <p>quantità  
-                    <select name="quantita">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select></p>
-                <p>prezzo</p>
-                </div>
-            </div>
-
-            
-
-         </section>
-         <section class="articolo" >
-
-            <div class="header">
-                <div class="venditore">
-               
-                <p>venditore</p>
-                </div>
-                <div class="opzioni">
-                    <p>	
-                        🗑️ </p>
-                    
-                    <!--❤️-->
-                </div>
-            </div>
-
-            <div class="oggetto">
-                <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
-                    <div>
-                        
-                        <p>oggetto</p>
-                    </div>
-                    
-                    
-                </div>
-                <div class="prezzo">
-                <p>quantità  
-                    <select name="quantita">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select></p>
-                <p>prezzo</p>
-                </div>
-            </div>
-
-            
-
-         </section>
-         <section class="articolo" >
-
-            <div class="header">
-                <div class="venditore">
-                
-                <p>venditore</p>
-                </div>
-                <div class="opzioni">
-                    <p>	
-                        🗑️ </p>
-                    
-                    <!--❤️-->
-                </div>
-            </div>
-
-            <div class="oggetto">
-                <div class="descrizione ">
-                    <img src="images/arduino_uno_r3.webp">
-                    <div>
-                        
-                        <p>oggetto</p>
-                    </div>
-                    
-                    
-                </div>
-                <div class="prezzo">
-                <p>quantità  
-                    <select name="quantita">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select></p>
-                <p>prezzo</p>
-                </div>
-            </div>
-
-            
-
-         </section>
+        
+         
+         ?>
         </div>
 
 
