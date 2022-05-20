@@ -67,6 +67,8 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
                             {
                             //print_r($insert);
                             mysqli_query($conn, $insert)or die("Errore:".mysqli_error($conn));
+                            
+                            $_SESSION["username"]=$utente;
                             //print_r($_POST);
                             }
                             else
