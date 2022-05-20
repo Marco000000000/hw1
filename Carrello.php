@@ -94,7 +94,7 @@ if(!isset($_SESSION["username"]))
 
             <div class="oggetto">
                 <div class="descrizione ">
-                    <img src="'.$row["UrlImg"].'">
+                  <a href="'.$row["url"].'">  <img src="'.$row["UrlImg"].'"></a>
                     <div>
                         
                         <p>'.$row["titolo"].'</p>
