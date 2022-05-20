@@ -69,6 +69,8 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
                             mysqli_query($conn, $insert)or die("Errore:".mysqli_error($conn));
                             
                             $_SESSION["username"]=$utente;
+                            header("Location: home.php");
+                            
                             //print_r($_POST);
                             }
                             else

@@ -274,6 +274,14 @@ p{margin: 0px;
   padding: 2%;
   margin: 2%;
 }
+.pubblica textarea{
+  padding: 2%;
+  margin: 2%;
+}
+.pubblica p{
+
+  margin: 2%;
+}
 .pubblica form{
   height: 100%;
 }
@@ -305,6 +313,14 @@ p{margin: 0px;
   width: 100%;
 }
 
+.hidden{
+  display:none;
+}
+
+.errore{
+
+  color:red;
+}
 @media (max-width: 800px) {
   
 

@@ -73,9 +73,9 @@ if(!isset($_SESSION["username"]))
         $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
         $username=$_SESSION["username"];
 
-        $query='SELECT * FROM `prodotti` JOIN `prodotto-carrello` on( url=prodotto) JOIN carrello on(id=carrello) WHERE proprietario="'.$username.'"';
+        $query='SELECT * FROM `prodotti` JOIN `prodotto-carrello` on( url=prodotto) JOIN carrello on(id=carrello) join profilo on(id=carrelloCorrente) WHERE proprietario="'.$username.'"';
         $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
-
+        $totale=0;
         foreach( $res as $row)
         {    
 
@@ -114,8 +114,9 @@ if(!isset($_SESSION["username"]))
                         echo '<option value="'.$i.'">'.$i.'</option>';
 
                     }
+                    $totale=$totale+$row["quantita"]*$row["prezzo"];
                     echo '</select></p>
-                <p>'.$row["prezzo"].'€</p>
+                <p id="prezzo">'.$row["prezzo"].'€</p>
                 </div>
             </div>
 
@@ -135,14 +136,14 @@ if(!isset($_SESSION["username"]))
          <section class="totale">
             <div>
                 <p>
-                    <strong>Totale:</strong>125€
+                    <strong>Totale:&nbsp</strong><em><?php echo $totale;?>€</em>
                 </p>
             </div>
             <div class="pubblica">
+                <p class="errore hidden">Superato il limite dei 255 caratteri</p>
                 <form>
-                <input row="2"  id="nome" name="nome" type="text" placeholder="Nome carrello">
-                
-                <input  row="10" id="descrizione" name="descrizione" type="text" placeholder="Descrizione">
+                <input row="2"  id="nome" name="nome" type="text" placeholder="Nome carrello" required>
+                <textarea id="descrizione" name="descrizione" placeholder="Descrizione" rows="10" cols="50" required></textarea>
                 <input id="pubblica" name="pubblica" type="submit" value="Pubblica">
 
                 
