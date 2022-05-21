@@ -87,6 +87,11 @@ nav a {
   height: 100%;
   
 }
+#caricamento{
+  margin: 30%;
+  width: 30%;
+  height: 30%;
+}
 #username #nav_hidden{
   display: none;
 }

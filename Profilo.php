@@ -14,23 +14,24 @@ if(!isset($_SESSION["username"]))
     }
 
 
-    if(isset($_FILES["foto"])&&$_FILES["foto"]["type"]=="jpg")
-        {
-            
-        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-        $username=$_SESSION["username"];
-        echo $_FILES["foto"];
-        $dati_file=$_FILES["foto"]["tmp_name"];
-        $dati_file = file_get_contents($username);
-
-// Preparo il contenuto del file per la query sql
-        $dati_file = addslashes($dati_file);
-        $query="UPDATE `profilo` SET `ImmagineProfilo` = $dati_file WHERE `Username` =$username";
-        $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+    
+    $query="select ImmagineProfilo as img from profilo where Username='".$_SESSION["username"]."'";
+    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+    $row=mysqli_fetch_assoc($res);
+    if(isset($row["img"]))
+    {
+        $img=$row["img"];
+    }
+    else
+    {
+        $img="Images/profilo-vuoto.png";
+    }
+    $row=$row["img"];
         
-        }
 
-        
+    $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE proprietario='".$_SESSION['username']."'and Nome IS NOT NULL GROUP BY carrello ORDER by proprietario, carrello DESC";
+
     ?>
 <html>
 
@@ -65,7 +66,7 @@ if(!isset($_SESSION["username"]))
      
      <div id="right">
          <a id="icona" href="Carrello.php">🛒        </a>
-         <div id="username"> <img src="images/img.webp">
+         <div id="username"> <img src="<?php echo $img;?>">
              <div id="nav_hidden">
                 <a><?php echo $_SESSION['username'];?></a>
                  <a   href="logout.php">Logout</a> 
@@ -81,11 +82,11 @@ if(!isset($_SESSION["username"]))
     <header>
         <div class="profilo">
             <form target="_myFrame" action="">
-            <label><input class="hidden" name="foto" type="file"></input><img src="images/img.webp"></label>
+            <label><input class="hidden" name="foto" type="file"></input><img src="<?php echo $img;?>"></label>
             
             </form>
             <div class="dati">
-                <h1> <?php if(isset($_GET["foto"])) echo $_GET["foto"];?>Marco Finocchiaro</h1>
+                <h1> <?php if(isset($_GET["foto"])) echo $_GET["foto"];?><?php echo $_SESSION["username"];?></h1>
                 <div class="segui">
                     <p>200 seguaci</p>
                     <button><strong>Segui</strong></button>
@@ -94,79 +95,83 @@ if(!isset($_SESSION["username"]))
             </div>
         </div>
         <div class="scelta">
-            <div id="pub"><a >Pubblicati</a></div>
+            <div id="pub" class="selected"><a >Pubblicati</a></div>
             <div id="like"><a>Piaciuti</a></div>
             
         </div>
 
     </header>
     <article>
-         <section>
-             <div class="header">
-             <div class="condivisore">
-                <img src="images/img.webp">
-                <p><strong>Marco</strong><br>
-                2h</p>
-             </div>
-             <strong>946.50€</strong>
-            </div>
-             <div class="bordo">
-             <div class="Corpo">
-                <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
-            </div>
-             <div class="carrello">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
+    <?php
+                $res= mysqli_query($conn,$query1) or die("Errore:".mysqli_error($conn));
                 
-             </div>
-             </div>
-             <div class="opzioni">
+                foreach( $res as $row)
+                {  
+                    $querydentro="SELECT ImmagineProfilo from profilo where Username='".$row["proprietario"]."'";
+                    $resfor= mysqli_query($conn,$querydentro) or die("Errore:".mysqli_error($conn));
+                    $rowfor=mysqli_fetch_assoc($resfor);
+                    $ImmagineProfilo=$rowfor["ImmagineProfilo"];
+                    $timestamp=strtotime($row["data"]);
+                    
+	                $strTime = array("s", "m", "h", "d", "m", "y");
+	                $length = array("60","60","24","30","12","10");
+
+	                $currentTime = time();
+	                if($currentTime >= $timestamp) {
+			           $diff     = time()- $timestamp;
+                        for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++) {
+                        $diff = $diff / $length[$i];
+                        }
+
+                    $diff = round($diff);
+                    $diff=$diff . " " . $strTime[$i];
+	                }
+	
+                echo '<section>
+                <div class="header">
+                <div class="condivisore">
+                <img src="'.$ImmagineProfilo.'">
+                <p><strong>'.$row["proprietario"].'</strong><br>
+                '.$diff.'</p>
+                </div>
+                <strong>'.$row["Totale"].'€</strong>
+                </div>
+                <div class="bordo">
+                <div class="Corpo">
+                <p>'.$row["Nome"].'</p>
+                </div>
+                <div class="carrello">';
+                if(isset($_GET["cerca"]))
+                {
+                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL and (Nome like '%word1%' OR Descrizione LIKE '%word1%' ) ORDER by proprietario, carrello DESC; ';
+                }
+                else
+                {
+                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL ORDER by proprietario, carrello DESC;';
+                }
+                $resimg= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+
+                foreach($resimg as $rowimg){
+                    echo '<a href="'.$rowimg["url"].'" target="_blank"><img src="'.$rowimg["UrlImg"].'"></a>';
+                
+                }
+                echo '</div>
+                </div>
+                <div class="opzioni">
                 <div class="like">
-                    <p>150</p>
-               <p>🤍</p>
+                    <p>'.$row["likes"].'</p>
+                <p>🤍</p>
                 </div>
-                <a ><img src="images/Schermo_Intero.png"></a>
-                
-             </div>
-         </section>
-         <section>
-            <div class="header">
-            <div class="condivisore">
-               <img src="images/img.webp">
-               <p><strong>Marco</strong><br>
-               2h</p>
-            </div>
-            <strong>946.50€</strong>
-           </div>
-            <div class="bordo">
-            <div class="Corpo">
-               <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
-           </div>
-            <div class="carrello">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
-               
-            </div>
-            </div>
-            <div class="opzioni">
-                <div class="like">
-                    <p>150</p>
-               <p>🤍</p>
-                </div>
-                <a ><img src="images/Schermo_Intero.png"></a>
+                <img class="schermo_intero" src="images/Schermo_Intero.png">
                 
                 </div>
-               
-            </div>
-        </section>
+                </section>';
+
+                }
+        ?>
+
+
+         
     </article>
 
 </body>

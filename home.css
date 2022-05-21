@@ -248,8 +248,8 @@ article section{
 .carrello a{
   margin: 0.5%;
   display:flex;
-  height:fit-content;
-  width: 48%;
+  height:265px;
+  width: 265px;
 }
 
 .carrello a img{
@@ -258,7 +258,7 @@ article section{
   border-radius: 10px;
   object-fit:cover;
   background-color:rgba(229, 231, 235,1) ;
-  
+  height: 100%;
   width: 100%;
   
   
@@ -296,7 +296,12 @@ p{margin: 0px;}
   }
 
  
-
+  .carrello a{
+    margin: 0.5%;
+    display:flex;
+    height:40vw;
+    width: 40vw;
+  }
  
   
   

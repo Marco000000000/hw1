@@ -10,13 +10,15 @@ function onText(text)
 {
 console.log(text);
 
-
+location.reload();
 }
-function onReload()
+function onText1(text)
 {
-    location.reload() 
+console.log(text);
+
 
 }
+
 function onChange(event)
 {
     console.log(event.currentTarget.value);
@@ -26,7 +28,7 @@ function onChange(event)
     fetch("cambiaQuantita.php?"+
     "&quantita="+encodeURIComponent(quantita)+
     "&user="+encodeURIComponent(user)+
-    "&prodotto="+encodeURIComponent(prodotto)).then(onResponse1,onError).then(onText).onReload();
+    "&prodotto="+encodeURIComponent(prodotto)).then(onResponse1,onError).then(onText);
 }
 
 function OnDelete(event)
@@ -34,7 +36,7 @@ function OnDelete(event)
     let link=event.currentTarget.closest(".articolo").querySelector(".descrizione a").href;
     fetch("EliminazioneCarrello.php?"+
     "&user="+encodeURIComponent(user)+
-    "&link="+encodeURIComponent(link)).then(onResponse1,onError).then(onText);
+    "&link="+encodeURIComponent(link)).then(onResponse1,onError).then(onText1);
     let articolo=event.currentTarget.closest(".articolo");
     let totale=document.querySelector(".totale em");
     let prezzo=articolo.querySelector("#prezzo").textContent;
@@ -58,7 +60,7 @@ function onPubblica(event)
     "&user="+encodeURIComponent(user)+
     "&totale="+encodeURIComponent(totale)+
     "&titolo="+encodeURIComponent(titolo)+
-    "&descrizione="+encodeURIComponent(descrizione)).then(onResponse1,onError).then(onReload);
+    "&descrizione="+encodeURIComponent(descrizione)).then(onResponse1,onError).then(onText);
 
 }
 

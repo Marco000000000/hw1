@@ -18,6 +18,20 @@ if(!isset($_SESSION["username"]))
         setcookie("cerca",$_POST["cerca"]);
           
     }
+
+    $query="select ImmagineProfilo as img from profilo where Username='".$_SESSION["username"]."'";
+    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
+    $row=mysqli_fetch_assoc($res);
+    if(isset($row["img"]))
+    {
+        $img=$row["img"];
+    }
+    else
+    {
+        $img="Images/profilo-vuoto.png";
+    }
+    $row=$row["img"];
    
 
     ?>
@@ -55,7 +69,7 @@ if(!isset($_SESSION["username"]))
      
      <div id="right">
          <a id="icona" href="Carrello.php">🛒        </a>
-         <div id="username"> <img src="images/img.webp">
+         <div id="username"> <img src="<?php echo $img;?>">
              <div id="nav_hidden">
                 <a href="Profilo.php"><?php echo $_SESSION['username'];?></a>
                  <a   href="logout.php">Logout</a> 
@@ -74,7 +88,7 @@ if(!isset($_SESSION["username"]))
     <article>
 
         
-
+    <img id="caricamento" src="Images/caricamento.gif">
         
         
         

@@ -109,12 +109,12 @@ html{
     align-items: top;
   
   } 
-  a:hover{
+  nav a:hover{
     background-color:rgb(247, 247, 248);
     
     height: 100%;
   }
-  a:active{
+  nav a:active{
     background-color: orange;
     height: 100%;
   }
@@ -242,18 +242,28 @@ html{
     
     
   }
+  .selected{
+    background-color: rgb(247, 189, 83);
+  }
   .carrello::-webkit-scrollbar{
     display: none;
   }
   
-  .carrello img{
+  .carrello a{
+    margin: 0.5%;
+    display:flex;
+    height:265px;
+    width: 265px;
+  }
+  
+  .carrello a img{
     display: flex;
     border: 1px solid grey;
     border-radius: 10px;
     object-fit:cover;
     background-color:rgba(229, 231, 235,1) ;
-    margin: 0.5%;
-    width: 48%;
+    height: 100%;
+    width: 100%;
     
     
   }
@@ -383,7 +393,15 @@ justify-content: center;
       width: 95%;
     }
   
-   
+    
+  .carrello a{
+    margin: 0.5%;
+    display:flex;
+    height:40vw;
+    width: 40vw;
+  }
+ 
+  
   
    
     

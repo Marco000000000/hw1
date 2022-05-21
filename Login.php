@@ -43,8 +43,8 @@ if(isset($_POST["utente"])&&isset($_POST["password"]))
         
         $usernameControl="SELECT * FROM `profilo` WHERE Username='".$utente."';";
         $emailControl="SELECT * FROM `profilo` WHERE Email='".$utente."';";
-
-        $controluser=(mysqli_num_rows(mysqli_query($conn, $usernameControl))); 
+        $res1=mysqli_query($conn, $usernameControl) or die("Errore:".mysqli_error($conn));
+        $controluser=(mysqli_num_rows($res1)); 
         $controlemail=(mysqli_num_rows(mysqli_query($conn, $emailControl))); 
        // print_r($controluser);
         //print_r($controlemail);
