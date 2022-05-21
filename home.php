@@ -30,7 +30,7 @@ if(!isset($_SESSION["username"]))
         
 
     if(isset($_GET["cerca"]))
-    {   $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL and (Nome like '%word1%' OR Descrizione LIKE '%word1%' )  GROUP BY carrello ORDER by proprietario, carrello DESC";
+    {   $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL and (Nome like '%".$_GET["cerca"]."%' OR Descrizione LIKE '%".$_GET["cerca"]."%' )  GROUP BY carrello ORDER by proprietario, carrello DESC";
     }
     else
     {
@@ -128,7 +128,7 @@ if(!isset($_SESSION["username"]))
                 <div class="carrello">';
                 if(isset($_GET["cerca"]))
                 {
-                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL and (Nome like '%word1%' OR Descrizione LIKE '%word1%' ) ORDER by proprietario, carrello DESC; ';
+                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL and (Nome like "%'.$_GET["cerca"].'%" OR Descrizione LIKE "%'.$_GET["cerca"].'%" ) ORDER by proprietario, carrello DESC; ';
                 }
                 else
                 {
