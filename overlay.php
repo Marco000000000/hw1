@@ -125,6 +125,11 @@ if(!isset($_SESSION["username"]))
                 <strong>mittentssssssssssssssssssssssssssssssssssssssssssssssssssse</strong>
                 <p>commento</p>    
                 </div>
+                <div class="commento nuovo">
+                <strong>Nuovo commento: </strong>
+                
+                <div><textarea></textarea> <button>Pubblica</button> </div>  
+                </div>
             </div>
             <div id="totale">
                 <p>
