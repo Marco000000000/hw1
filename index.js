@@ -70,7 +70,6 @@ function onJson(json)
         let hearth=document.createElement("p");
         hearth.classList.add("hearth");
         hearth.textContent=data.emoji;
-        hearth.addEventListener("click",onLike);
         let schermo_intero=document.createElement("img");
         schermo_intero.classList.add("schermo_intero");
         schermo_intero.src="images/Schermo_Intero.png";
@@ -151,7 +150,6 @@ function onOverlay(json){
         opzioni.classList.add("opzioni");
         let p_opzioni=document.createElement("p");
         p_opzioni.textContent="🛒";
-        p_opzioni.addEventListener("click",onCarrello);
         opzioni.appendChild(p_opzioni);
         header.appendChild(venditore);
         header.appendChild(opzioni);
@@ -232,12 +230,7 @@ function onOverlay(json){
     let nuovocommento=document.createElement("div");
     nuovocommento.classList.add("commento");
     nuovocommento.classList.add("nuovo");
-    let strong_com=document.createElement("strong");
-    strong_com.textContent="Nuovo commento:";
-    let textarea=document.createElement("textarea");
-    textarea.addEventListener("keyup",onEnter);
-    nuovocommento.appendChild(strong_com);
-    nuovocommento.appendChild(textarea);
+    
     commenti.appendChild(nuovocommento);
     totale.appendChild(commenti);
     let somma=document.createElement("div");

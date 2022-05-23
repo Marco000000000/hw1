@@ -30,11 +30,11 @@ if(!isset($_SESSION["username"]))
         
 
     if(isset($_GET["cerca"]))
-    {   $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL and (Nome like '%".$_GET["cerca"]."%' OR Descrizione LIKE '%".$_GET["cerca"]."%' )  GROUP BY carrello ORDER by proprietario, carrello DESC";
+    {   $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL and (Nome like '%".$_GET["cerca"]."%' OR Descrizione LIKE '%".$_GET["cerca"]."%' )  GROUP BY carrello ORDER by data desc,proprietario, carrello DESC";
     }
     else
     {
-        $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL GROUP BY carrello ORDER by proprietario, carrello DESC";
+        $query1="SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello)  WHERE Nome IS NOT NULL GROUP BY carrello ORDER by data desc,proprietario, carrello DESC";
     }
     ?>
 
@@ -45,7 +45,10 @@ if(!isset($_SESSION["username"]))
         Home
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="overlay.css">
     <link rel="stylesheet" href="home.css">
+
+
     <script src="home.js" defer="true"></script>
 
 </head>
@@ -87,73 +90,7 @@ if(!isset($_SESSION["username"]))
     
     <article>
 
-        <?php
-                $res= mysqli_query($conn,$query1) or die("Errore:".mysqli_error($conn));
-                
-                foreach( $res as $row)
-                {  
-                    $querydentro="SELECT ImmagineProfilo from profilo where Username='".$row["proprietario"]."'";
-                    $resfor= mysqli_query($conn,$querydentro) or die("Errore:".mysqli_error($conn));
-                    $rowfor=mysqli_fetch_assoc($resfor);
-                    $ImmagineProfilo=$rowfor["ImmagineProfilo"];
-                    $timestamp=strtotime($row["data"]);
-                    
-	                $strTime = array("s", "m", "h", "d", "m", "y");
-	                $length = array("60","60","24","30","12","10");
-
-	                $currentTime = time();
-	                if($currentTime >= $timestamp) {
-			           $diff     = time()- $timestamp;
-                        for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++) {
-                        $diff = $diff / $length[$i];
-                        }
-
-                    $diff = round($diff);
-                    $diff=$diff . " " . $strTime[$i];
-	                }
-	
-                echo '<section>
-                <div class="header">
-                <div class="condivisore">
-                <img src="'.$ImmagineProfilo.'">
-                <p><strong>'.$row["proprietario"].'</strong><br>
-                '.$diff.'</p>
-                </div>
-                <strong>'.$row["Totale"].'€</strong>
-                </div>
-                <div class="bordo">
-                <div class="Corpo">
-                <p>'.$row["Nome"].'</p>
-                </div>
-                <div class="carrello">';
-                if(isset($_GET["cerca"]))
-                {
-                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL and (Nome like "%'.$_GET["cerca"].'%" OR Descrizione LIKE "%'.$_GET["cerca"].'%" ) ORDER by proprietario, carrello DESC; ';
-                }
-                else
-                {
-                    $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL ORDER by proprietario, carrello DESC;';
-                }
-                $resimg= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
-
-                foreach($resimg as $rowimg){
-                    echo '<a href="'.$rowimg["url"].'" target="_blank"><img src="'.$rowimg["UrlImg"].'"></a>';
-                
-                }
-                echo '</div>
-                </div>
-                <div class="opzioni">
-                <div class="like">
-                    <p>'.$row["likes"].'</p>
-                <p>🤍</p>
-                </div>
-                <img class="schermo_intero" src="images/Schermo_Intero.png">
-                
-                </div>
-                </section>';
-
-                }
-        ?>
+        
 
 
 

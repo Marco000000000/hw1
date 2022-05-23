@@ -18,6 +18,11 @@ console.log(text);
 
 
 }
+function onRedirect(text)
+{
+    console.log(text);
+    window.location.replace("home.php");
+}
 
 function onChange(event)
 {
@@ -60,8 +65,8 @@ function onPubblica(event)
     "&user="+encodeURIComponent(user)+
     "&totale="+encodeURIComponent(totale)+
     "&titolo="+encodeURIComponent(titolo)+
-    "&descrizione="+encodeURIComponent(descrizione)).then(onResponse1,onError).then(onText);
-
+    "&descrizione="+encodeURIComponent(descrizione)).then(onResponse1,onError).then(onRedirect);
+    
 }
 
 

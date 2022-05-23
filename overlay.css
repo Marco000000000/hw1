@@ -1,27 +1,25 @@
-html{
-  font-size: 25px;
-}
 
-
-body{
- 
-  margin: 0px;
-    color: rgb(0, 0, 0);
-  background-color: #e4e6eb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;   
-      flex-direction: column;
-}
-textarea{
+.fixed-content textarea{
   margin: 2% 0;
   padding: 2%;
   border-radius: 10px;
   width: 100%;
   height: 100px;
 }
- 
+.fixed-content {
+  background-color: rgba(247, 247, 248,0.8);
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  top: 0;
+  bottom:0;
+  z-index: 15;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  display: flex;
+
+}
 #chiudi:hover{
   background-color:rgb(247, 247, 248);
   
@@ -35,38 +33,32 @@ textarea{
   padding: 2%;
 }
 
-article{
- display: flex;
- width: 100%;
- height: 100%;
- align-items: top;
- justify-content: space-between;
-}
+
 div{
     display: flex;
 }
 
-.commento div{
+.fixed-content .commento div{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-.commenti button {
+.fixed-content .commenti button {
   font-size: 1rem;
 
 }
  
-.descrizione img{
+.fixed-content .descrizione img{
   height: 20vh;
   width: 20vh;
 }
-.divisore{
+.fixed-content .divisore{
   flex-direction: column;
  width: 65%;
  height: 100%;
 }
 
-.articolo{
+.fixed-content .articolo{
   background-position: center;
   background-color: white;
   background-size: cover;
@@ -81,17 +73,17 @@ div{
     justify-content: space-between;
 
 }
-.venditore{
+.fixed-content .venditore{
     height: 100%;
     padding:0px;
     align-items: center;
     justify-content: left;
     margin:5px;
 }
-.descrizione a{
+.fixed-content .descrizione a{
  margin:2%;
 }
-.header{
+.fixed-content .header{
   display: flex;
   padding: 1%;
   height: 20%;
@@ -100,38 +92,37 @@ div{
     border-bottom: 1px solid rgb(165, 164, 164);
 }
 
-.venditore p{
+.fixed-content .venditore p{
     
     margin:0px;
     padding :0px 5px;
 }
-.oggetto{
-    align-items: top;
+.fixed-content .oggetto{
     height: 70%;
     padding:1%;
     justify-content: space-between;
 }
-.descrizione{
+.fixed-content .descrizione{
     width: 80%;
 }
-.prezzo{
+.fixed-content .prezzo{
     width: 15%;
     padding: 1%;
     flex-direction: column;
     justify-content: space-between;
 }
-.opzioni{
+.fixed-content .opzioni{
     height: 100%;
     
 }
-.opzioni p{
+.fixed-content .opzioni p{
     margin: 0px;
     padding: 5px;
 }
-p{margin: 0px;
+.fixed-content p{margin: 0px;
   font-size: 3.5vh;
 }
-.totale{
+.fixed-content .totale{
   width: 30%;
   height: 100%;
   display: flex;
@@ -142,36 +133,38 @@ p{margin: 0px;
   align-items:flex-end;
   flex-direction: column;
 }
-.info{
+.fixed-content .info{
   padding: 0 2%;
 
-  height: 30%;
+  height: 50%;
   width: 100%;
   flex-direction: column;
 }
-.info h2{
+.fixed-content .info h2{
   overflow-y: scroll;
+  overflow-wrap: break-word;
 
   height: 30%;
   width: 96%;
   padding:2%;
  
 }
-.info h2::-webkit-scrollbar{
+.fixed-content .info h2::-webkit-scrollbar{
   display: none;
 }
-.info p {
+.fixed-content .info p {
     padding:2%;
+    overflow-wrap: break-word;
 
   overflow-y: scroll;
   height: 70%;
   margin-top: 2%;
   width: 96%;
 }
-.info p::-webkit-scrollbar{
+.fixed-content .info p::-webkit-scrollbar{
   display: none;
 }
-.commenti{
+.fixed-content .commenti{
   padding: 0 2%;
   overflow-y: scroll;
   justify-content: space-between;
@@ -180,7 +173,8 @@ p{margin: 0px;
   width: 100%;
 
 }
-.commento{
+
+.fixed-content .commento{
   padding:2%;
   font-size: 1.2rem;
   overflow-wrap: break-word;
@@ -189,7 +183,10 @@ p{margin: 0px;
   width: 96%;
   border-bottom: 1px solid rgb(165, 164, 164);
 }
-.commenti::-webkit-scrollbar{
+.fixed-content .nuovo{
+  border-bottom: none;
+}
+.fixed-content .commenti::-webkit-scrollbar{
   display: none;
 }
 #chiudi{
@@ -199,12 +196,19 @@ p{margin: 0px;
   width: 50px;
   height: 50px;
 }
+.fixed-content em{
+  font-style: normal;
 
+}
 #descrizione{
   height:50% ;
   width: 100%;
 }
-
+.stop{
+  opacity:0.1;
+  position: fixed;
+  overflow: hidden;
+}
 .hidden{
   display:none;
 }

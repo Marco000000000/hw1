@@ -23,7 +23,6 @@ if(isset($_SESSION["username"]) ||isset($_COOKIE["username"]))
     <link rel="stylesheet" href="Login.css">
     <script src="" defer="true"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./Registrazione_files/css2"></head>
 <body>
     
     <div id="Container">

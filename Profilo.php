@@ -40,7 +40,9 @@ if(!isset($_SESSION["username"]))
         Profilo
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Profilo.css">
+    <link rel="stylesheet" href="overlay.css" defer>
+    <link rel="stylesheet" href="Profilo.css" defer>
+    
     <script src="Profilo.js" defer="true"></script>
 
 </head>
@@ -51,10 +53,10 @@ if(!isset($_SESSION["username"]))
              
         <a href="home.php"><div>Home</div> </a>
       
-     <form action="Ricerca.php">
+     <form action="">
         <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm10.45 2.95L16 16l4.95 4.95Z" class="icon_svg-stroke" stroke="#666" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
-         <label> <input type="text" placeholder="Cerca carrello" name="cerca"></label>
+         <label> <input type="text" placeholder="Cerca persona o argomento" name="cerca"></label>
       </form>
      <!--<div >
          <a href="logout.php"> Accedi </a>
@@ -68,7 +70,7 @@ if(!isset($_SESSION["username"]))
          <a id="icona" href="Carrello.php">🛒        </a>
          <div id="username"> <img src="<?php echo $img;?>">
              <div id="nav_hidden">
-                <a><?php echo $_SESSION['username'];?></a>
+                <a href='Profilo.php'><?php echo $_SESSION['username'];?></a>
                  <a   href="logout.php">Logout</a> 
              </div>
          
@@ -88,8 +90,8 @@ if(!isset($_SESSION["username"]))
             <div class="dati">
                 <h1> <?php if(isset($_GET["foto"])) echo $_GET["foto"];?><?php echo $_SESSION["username"];?></h1>
                 <div class="segui">
-                    <p>200 seguaci</p>
-                    <button><strong>Segui</strong></button>
+                    <p></p>
+                    <button><strong>👤</strong></button>
                 </div>
                 
             </div>
@@ -97,13 +99,14 @@ if(!isset($_SESSION["username"]))
         <div class="scelta">
             <div id="pub" class="selected"><a >Pubblicati</a></div>
             <div id="like"><a>Piaciuti</a></div>
+            <div id="follow"><a>Seguiti</a></div>
             
         </div>
 
     </header>
     <article>
     <?php
-                $res= mysqli_query($conn,$query1) or die("Errore:".mysqli_error($conn));
+             /*   $res= mysqli_query($conn,$query1) or die("Errore:".mysqli_error($conn));
                 
                 foreach( $res as $row)
                 {  
@@ -140,7 +143,7 @@ if(!isset($_SESSION["username"]))
                 <div class="Corpo">
                 <p>'.$row["Nome"].'</p>
                 </div>
-                <div class="carrello">';
+                <div class="carrello">';/*
                 if(isset($_GET["cerca"]))
                 {
                     $query='SELECT * FROM `carrello` join `prodotto-carrello` ON (ID=carrello) join prodotti ON(url=prodotto) WHERE carrello='.$row["carrello"].' and Nome IS NOT NULL and (Nome like '%word1%' OR Descrizione LIKE '%word1%' ) ORDER by proprietario, carrello DESC; ';
@@ -166,8 +169,8 @@ if(!isset($_SESSION["username"]))
                 
                 </div>
                 </section>';
-
-                }
+*/
+                
         ?>
 
 

@@ -18,7 +18,7 @@ if(isset($_GET["descrizione"])&&isset($_GET["titolo"])&&isset($_GET["totale"])&&
     $res=mysqli_query($conn,$query3) or die("Errore:".mysqli_error($conn));
     $row=mysqli_fetch_assoc($res)["max"];
     echo "insert";
-    $query="INSERT INTO `prodotto-carrello` (`prodotto`, `carrello`)  select p.prodotto , ".$row." from `prodotto-carrello` as p where carrello=".$carrello;
+    $query="INSERT INTO `prodotto-carrello` (`prodotto`, `carrello`,quantita)  select p.prodotto , ".$row.",p.quantita from `prodotto-carrello` as p where carrello=".$carrello;
     echo mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
     echo "insert";
     $query4="DELETE FROM `prodotto-carrello`  WHERE carrello=".$carrello;
