@@ -271,6 +271,9 @@ div{
    }
 
 }
+input{
+  width: 60%;
+}
 @media(max-height=700px)
 {
   .divisore{
