@@ -15,47 +15,47 @@ function onError(error)
 
 function onJson(json)
 { console.log(json);
-    let results=json.shopping_results;
-    let article=document.querySelector("article");
+    const results=json.shopping_results;
+    const article=document.querySelector("article");
     article.innerHTML="";
     for(let i=0;i<results.length;i++)
     {
-        let price=results[i].extracted_price+"€";
-        let title=results[i].title;
-        let thumbnail=results[i].thumbnail;
-        let link=results[i].link;
-        let source=results[i].source;
+        const price=results[i].extracted_price+"€";
+        const title=results[i].title;
+        const thumbnail=results[i].thumbnail;
+        const link=results[i].link;
+        const source=results[i].source;
         
         
 /*
-        let select=document.createElement("select");
+        const select=document.createElement("select");
         select.name="quantita";*/
-        let option1=document.createElement("option");
+        const option1=document.createElement("option");
         option1.selected=true;
-        let p_prezzo=document.createElement("p");
+        const p_prezzo=document.createElement("p");
         p_prezzo.textContent=price;
        
-        let div_prezzo=document.createElement("div");
-        let div_oggetto_sottostante=document.createElement("div");
-        let p_oggetto=document.createElement("p");
+        const div_prezzo=document.createElement("div");
+        const div_oggetto_sottostante=document.createElement("div");
+        const p_oggetto=document.createElement("p");
         p_oggetto.textContent=(title);
-        let img=document.createElement("img");
+        const img=document.createElement("img");
         img.src=thumbnail;
-        let a=document.createElement("a");
-        let div_descrizione=document.createElement("div");
-        let div_oggetto=document.createElement("div");
-        let p_opzioni=document.createElement("p");
+        const a=document.createElement("a");
+        const div_descrizione=document.createElement("div");
+        const div_oggetto=document.createElement("div");
+        const p_opzioni=document.createElement("p");
         p_opzioni.classList.add("carrello");
         p_opzioni.textContent=( "🛒");
         p_opzioni.addEventListener("click",onClick);
 
-        let div_opzioni=document.createElement("div");
-        let p_venditore=document.createElement("p");
+        const div_opzioni=document.createElement("div");
+        const p_venditore=document.createElement("p");
         p_venditore.textContent=(source);
-        let div_venditore=document.createElement("div");
-        let div_header=document.createElement("div");
-        let section=document.createElement("section");
-        let div_divisore=document.createElement("div");
+        const div_venditore=document.createElement("div");
+        const div_header=document.createElement("div");
+        const section=document.createElement("section");
+        const div_divisore=document.createElement("div");
          
         div_prezzo.classList.add("prezzo");
        
@@ -100,14 +100,14 @@ console.log(text);
 }
 
 function onClick(event)
-{   let target=event.currentTarget;
+{   const target=event.currentTarget;
     target.textContent="✔";
-    let prezzo=target.closest(".articolo ").querySelector(".prezzo p").textContent;
-    let descrizione=target.closest(".articolo ").querySelector(".descrizione  div p").textContent;
-    let venditore=target.closest(".articolo ").querySelector(".venditore p").textContent;
-    let img=target.closest(".articolo ").querySelector("img").src;
-    let link=target.closest(".articolo ").querySelector("a").href;
-    let user=document.querySelector("a[href='Profilo.php']").textContent;
+    const prezzo=target.closest(".articolo ").querySelector(".prezzo p").textContent;
+    const descrizione=target.closest(".articolo ").querySelector(".descrizione  div p").textContent;
+    const venditore=target.closest(".articolo ").querySelector(".venditore p").textContent;
+    const img=target.closest(".articolo ").querySelector("img").src;
+    const link=target.closest(".articolo ").querySelector("a").href;
+    const user=document.querySelector("a[href='Profilo.php']").textContent;
     fetch("InserimentoCarrello.php?"+"prezzo="+prezzo+"&descrizione="+descrizione+
     "&venditore="+venditore+
     "&img="+encodeURIComponent(img)+

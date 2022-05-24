@@ -21,7 +21,9 @@
 
 }
 #chiudi:hover{
-  background-color:rgb(247, 247, 248);
+  color: white;
+  background-color:rgb(71, 69, 69);
+  border-radius: 10px;
   
 }
 #chiudi:active{
@@ -190,6 +192,9 @@ div{
   display: none;
 }
 #chiudi{
+  color: white;
+  background-color:rgb(129, 121, 121);
+  border-radius: 10px;
   margin: 2vh;
   justify-content: center;
   align-items: center;

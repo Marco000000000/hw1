@@ -1,4 +1,19 @@
-
+function onResponse1(response)
+{
+    return response.text();
+}
+function onText1(text)
+{
+    console.log(text);
+    if(text==1)
+    {
+        window.location.replace("home.php");
+    }
+    else
+    {
+        document.querySelector("#errore_registrato").classList.remove("hidden");
+    }
+}
 function contains(str,chars) {
     console.log([str,chars]);
     for(let i=0;i<chars.length;i++)
@@ -16,11 +31,12 @@ function controlloutente(event){
     const specialChars = "/ [`!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;"
     const num="0123456789";
     const letters="abcdefghijklmnopqrstuvwxyz";
-    let inserimentoUtente=utente.value;
-    let inserimentoPassword=password.value;
-    let inserimentoConferma=conferma.value;
-    let inserimentoEmail=email.value;
-    const errori= [document.querySelector("#errore_utente"),document.querySelector("#errore_password"),document.querySelector("#errore_conferma"),document.querySelector("#errore_lunghezza")];
+    const inserimentoUtente=utente.value;
+    const inserimentoPassword=password.value;
+    const inserimentoConferma=conferma.value;
+    const inserimentoEmail=email.value;
+    const errori= [document.querySelector("#errore_utente"),document.querySelector("#errore_password"),document.querySelector("#errore_conferma"),document.querySelector("#errore_lunghezza"),document.querySelector("#errore_registrato")];
+    event.preventDefault();
     for(let i=0;i<errori.length;i++)
     {
         if(!errori[i].classList.contains("hidden"))
@@ -33,29 +49,29 @@ function controlloutente(event){
     if(contains(inserimentoUtente,specialChars))
     {
     errori[0].classList.remove("hidden");
-    event.preventDefault();
     return;
     }
     if((!contains(inserimentoPassword,num))||(!contains(inserimentoPassword.toLowerCase(),letters)))
     {
     errori[1].classList.remove("hidden");
-    event.preventDefault();
     return;
     }
 
     if(inserimentoPassword!=inserimentoConferma)
     {
     errori[2].classList.remove("hidden");
-    event.preventDefault();
     return;
     }
     if(inserimentoUtente.length>20||inserimentoPassword.length>30||inserimentoEmail.length>50)
     {
         errori[3].classList.remove("hidden");
-        event.preventDefault();
+        
         return; 
     }
-
+    
+    fetch("Validazione.php?utente="+encodeURIComponent(inserimentoUtente)+
+    "&password="+encodeURIComponent(inserimentoPassword)+
+    "&email="+encodeURIComponent(inserimentoEmail)).then(onResponse1).then(onText1);
 
     
 

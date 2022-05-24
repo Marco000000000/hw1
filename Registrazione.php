@@ -28,65 +28,12 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
         <div id="overlay">
             <h1>Registrati</h1>
             <div class="errori">
-            <?php
-                function contains($str,$chars) {
-                    //print_r([$str,$chars]);
-                    for($i=0;$i<strlen($chars);$i++)
-                    {   
-                        if(strpos($str,$chars[$i])!==false)
-                        {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-                if(isset($_POST["utente"])&&isset($_POST["password"])&&isset($_POST["email"]))   
-                    {
-                        $specialChars = "/ [`!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;";
-                        $num="0123456789";
-                        $letters="abcdefghijklmnopqrstuvwxyz";
-
-                        if((!contains($_POST["utente"],$specialChars))&& ((contains($_POST["password"],$num))&&(contains(strtolower($_POST["password"]),$letters))))
-                        {   
-                            $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-
-                            $utente=mysqli_real_escape_string($conn,$_POST["utente"]);
-                            $password=mysqli_real_escape_string($conn,$_POST["password"]);
-                            $email=mysqli_real_escape_string($conn,$_POST["email"]);
-                            $insert="INSERT INTO profilo (`Username`, `Password`, `Email`) VALUES ('".($utente)."', '".($password)."', '".($email)."')";
-                            
-                            $usernameControl="SELECT * FROM `profilo` WHERE Username='".($utente)."';";
-                            $emailControl="SELECT * FROM `profilo` WHERE Email='".($email)."';";
-                            $controluser=(mysqli_num_rows(mysqli_query($conn, $usernameControl))==0); 
-                            $controlemail=(mysqli_num_rows(mysqli_query($conn, $emailControl))==0); 
-                        // print_r($controluser);
-                            //print_r($controlemail);
-
-                            
-                            if($controluser&&$controlemail)
-                            {
-                            //print_r($insert);
-                            mysqli_query($conn, $insert)or die("Errore:".mysqli_error($conn));
-                            
-                            $_SESSION["username"]=$utente;
-                            header("Location: home.php");
-                            
-                            //print_r($_POST);
-                            }
-                            else
-                            {
-                                echo '<p id="errore_registrato" class="errore">Nome utente o email già registrati</p>';
-                            }
-                            mysqli_close($conn);
-                        }
-                        
-                    
-                    }
-?>
+            
                 <p id="errore_utente" class="hidden errore">Il nome utente non può contenere caratteri speciali</p>
                 <p id="errore_conferma" class="hidden errore">Le password non coincidono</p>
                 <p id="errore_password" class="hidden errore">La Password deve contenere almeno un numero ed una lettera</p>
                 <p id="errore_lunghezza" class="hidden errore">Limiti caratteri: Username=30; Password=30; Email=30;</p>
+                <p id="errore_registrato" class="hidden errore">Nome utente o email già registrati</p>
 
             </div>
     

@@ -27,38 +27,38 @@ function onRedirect(text)
 function onChange(event)
 {
     console.log(event.currentTarget.value);
-    let quantita=event.currentTarget.value;
-    let user=document.querySelector("a[href='Profilo.php']").textContent;
-    let prodotto=event.currentTarget.closest(".articolo").querySelector(".descrizione a").href;
+    const quantita=event.currentTarget.value;
+    const user=document.querySelector("a[href='Profilo.php']").textContent;
+    const prodotto=event.currentTarget.closest(".articolo").querySelector(".descrizione a").href;
     fetch("cambiaQuantita.php?"+
     "&quantita="+encodeURIComponent(quantita)+
     "&user="+encodeURIComponent(user)+
     "&prodotto="+encodeURIComponent(prodotto)).then(onResponse1,onError).then(onText);
 }
 
-function OnDelete(event)
-{   let user=document.querySelector("a[href='Profilo.php']").textContent;
-    let link=event.currentTarget.closest(".articolo").querySelector(".descrizione a").href;
+function OnDeconste(event)
+{   const user=document.querySelector("a[href='Profilo.php']").textContent;
+    const link=event.currentTarget.closest(".articolo").querySelector(".descrizione a").href;
     fetch("EliminazioneCarrello.php?"+
     "&user="+encodeURIComponent(user)+
     "&link="+encodeURIComponent(link)).then(onResponse1,onError).then(onText1);
-    let articolo=event.currentTarget.closest(".articolo");
-    let totale=document.querySelector(".totale em");
+    const articolo=event.currentTarget.closest(".articolo");
+    const totale=document.querySelector(".totale em");
     let prezzo=articolo.querySelector("#prezzo").textContent;
-    let quantita=articolo.querySelector("select").value;
+    const quantita=articolo.querySelector("select").value;
     prezzo=prezzo.substring(0, prezzo.length - 1);
     totale.textContent=(totale.textContent.substring(0, totale.textContent.length-1)-prezzo*quantita).toFixed(2)+"€";
     console.log(articolo.remove());
-    event.currentTarget.removeEventListener("click", OnDelete,false);
+    event.currentTarget.removeEventListener("click", OnDeconste,false);
 
 }
 
 function onPubblica(event)
 {   event.preventDefault();
-    let user=document.querySelector("a[href='Profilo.php']").textContent;
-    let form=event.currentTarget;
-    let titolo=form.querySelector("input[name='nome']").value;
-    let descrizione=form.querySelector("textarea").value;
+    const user=document.querySelector("a[href='Profilo.php']").textContent;
+    const form=event.currentTarget;
+    const titolo=form.querySelector("input[name='nome']").value;
+    const descrizione=form.querySelector("textarea").value;
     let totale=document.querySelector(".totale em").textContent
     totale=totale.substring(0, totale.length-1);
     fetch("pubblica.php?"+
@@ -76,7 +76,7 @@ let quantita=document.querySelectorAll("select");
 let pubblica=document.querySelector(".pubblica form");
 for(let i=0;i<cestini.length;i++)
 {
-    cestini[i].addEventListener("click",OnDelete);
+    cestini[i].addEventListener("click",OnDeconste);
 }
 for(let i=0;i<quantita.length;i++)
 {
