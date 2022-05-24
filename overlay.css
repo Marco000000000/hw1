@@ -231,6 +231,9 @@ div{
     overflow-x: hidden;
 
   }
+  .fixed-content .oggetto{
+    overflow: hidden;
+  }
   .fixed-content .oggetto {
     overflow-wrap: break-word;}
     .fixed-content .divisore{
