@@ -89,7 +89,7 @@ if(!isset($_SESSION["username"]))
     <article>
 
         
-    <img id="caricamento" src="Images/caricamento.gif">
+    <img id="caricamento" src="images/caricamento.gif">
         
         
         
