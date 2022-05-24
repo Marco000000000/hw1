@@ -21,12 +21,13 @@ if(!isset($_SESSION["username"]))
     if(isset($row["img"]))
     {
         $img=$row["img"];
+        $row=$row["img"];
     }
     else
     {
         $img="Images/profilo-vuoto.png";
     }
-    $row=$row["img"];
+    
         
 
     if(isset($_GET["cerca"]))

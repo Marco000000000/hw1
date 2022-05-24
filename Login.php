@@ -103,7 +103,7 @@ if(isset($_POST["utente"])&&isset($_POST["password"]))
     <form action="" method="post">
         <label><input type="text" placeholder="Nome Utente/Email" name="utente" required></label>
         <label><input type="password" placeholder="Password" name="password" required></label>
-        <label id="label_check"><input id="checkbox" type="checkbox" placeholder="" name="check">Resta collegato</label>
+        <label id="label_check"><input id="checkbox" type="checkbox" placeholder="" name="check"><p>Resta collegato</p></label>
         <label id="submit"><input type="submit" value="Accedi"></label>
     </form>
     <a href="Registrazione.php"> <h3>Non hai un account?<br>Registrati</h3></a>

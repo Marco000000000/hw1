@@ -12,7 +12,7 @@ if(isset($_GET["descrizione"])&&isset($_GET["titolo"])&&isset($_GET["totale"])&&
     $row=mysqli_fetch_assoc($res);
     $carrello=$row["carrelloCorrente"];
 
-    $query2="INSERT INTO `carrello` ( `proprietario`, `Totale`, `Nome`, `Descrizione`, `likes`, `commenti`) VALUES ('$user', '$totale', '$titolo', '$descrizione', '0', '0')";
+    $query2="INSERT INTO `carrello` ( `proprietario`, `Totale`, `Nome`, `Descrizione`, `likes`) VALUES ('$user', '$totale', '$titolo', '$descrizione', '0')";
     echo mysqli_query($conn,$query2) or die("Errore:".mysqli_error($conn));
     $query3="(SELECT (max(id)) as max FROM `carrello`)";
     $res=mysqli_query($conn,$query3) or die("Errore:".mysqli_error($conn));

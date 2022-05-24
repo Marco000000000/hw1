@@ -23,7 +23,17 @@ function onJson(json)
         const condivisore=document.createElement("div");
         condivisore.classList.add("condivisore");
         const immagineProfilo=document.createElement("img");
-        immagineProfilo.src=data.ImmagineProfilo;
+        if(data.ImmagineProfilo!=null)
+        {
+            immagineProfilo.src=data.ImmagineProfilo;
+            
+        }
+            
+        else{
+            immagineProfilo.src="images/profilo-vuoto.png";
+          
+        }
+        
         const p_proprietario=document.createElement("p");
         const strong_propr=document.createElement("strong");
         strong_propr.textContent=data.proprietario;

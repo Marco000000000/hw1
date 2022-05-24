@@ -60,72 +60,7 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
         
     
     <article>
-         <section>
-             <div class="header">
-             <div class="condivisore">
-                <img src="images/img.webp">
-                <p><strong>Marco</strong><br>
-                2h</p>
-             </div>
-             <strong>946.50€</strong>
-            </div>
-             <div class="bordo">
-             <div class="Corpo">
-                <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
-            </div>
-             <div class="carrello">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
-                
-             </div>
-             </div>
-             <div class="opzioni">
-                <div class="like">
-                    <p>150</p>
-               <p>🤍</p>
-                </div>
-                <a ><img src="images/Schermo_Intero.png"></a>
-                
-             </div>
-         </section>
-         <section>
-            <div class="header">
-            <div class="condivisore">
-               <img src="images/img.webp">
-               <p><strong>Marco</strong><br>
-               2h</p>
-            </div>
-            <strong>946.50€</strong>
-           </div>
-            <div class="bordo">
-            <div class="Corpo">
-               <p>Impianto elettrico a meno di 1000€? <br>Eccolo qui!</p>
-           </div>
-            <div class="carrello">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/arduino_uno_r3.webp">
-                <img src="images/ES32-CAM-esp-32-camera-module_LR.jpg">
-                <img src="images/esp32-wroom.jpg">
-                <img src="images/arduino_uno_r3.webp">
-               
-            </div>
-            </div>
-            <div class="opzioni">
-                <div class="like">
-                    <p>150</p>
-               <p>🤍</p>
-                </div>
-                <a ><img src="images/Schermo_Intero.png"></a>
-                
-                </div>
-               
-            </div>
-        </section>
+         
     </article>
 
 </body>
