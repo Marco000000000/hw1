@@ -323,7 +323,7 @@ p{margin: 0px;
 }
 @media (max-width: 700px) {
   article{
-    
+    overflow-x: hidden;
     flex-wrap: wrap;
     justify-content: center;
     width: 96%;

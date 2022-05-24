@@ -137,16 +137,19 @@ div{
 }
 .fixed-content .info{
   padding: 0 2%;
+  overflow-wrap: break-word;
 
-  height: 50%;
+  height: fit-content;
   width: 100%;
   flex-direction: column;
 }
 .fixed-content .info h2{
+  margin: 0px;
   overflow-y: scroll;
   overflow-wrap: break-word;
 
-  height: 30%;
+  max-height: 25vh;
+  height: fit-content;
   width: 96%;
   padding:2%;
  
@@ -159,9 +162,11 @@ div{
     overflow-wrap: break-word;
 
   overflow-y: scroll;
-  height: 70%;
+  max-height: 25vh;
+  height: fit-content;
   margin-top: 2%;
   width: 96%;
+  margin-bottom: 5%;
 }
 .fixed-content .info p::-webkit-scrollbar{
   display: none;
@@ -171,7 +176,7 @@ div{
   overflow-y: scroll;
   justify-content: space-between;
   flex-direction: column;
-  height:40%;
+  height:40vh;
   width: 100%;
 
 }
@@ -221,9 +226,28 @@ div{
 
 
 #totale{margin :2%}
-@media (max-width: 800px) {
-  
+@media (max-width: 700px) {
+  .fixed-content{
+    overflow-x: hidden;
 
+  }
+  .fixed-content .oggetto {
+    overflow-wrap: break-word;}
+    .fixed-content .divisore{
+      width: 100vw;
+      margin-bottom: 5%;
+     }
+     .fixed-content .descrizione a{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+     .fixed-content  p{
+      font-size: 5vw;
+     }
+     .fixed-content .divisore img {width: 35vw;
+                    height: 35vw;}
+      
 }
     
 

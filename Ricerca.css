@@ -172,7 +172,6 @@ form:focus{
 
 article{
   flex-wrap: wrap;
-  width: 100%;
  display: flex;
  height: 100%;
  align-items: top;
@@ -192,8 +191,9 @@ div{
 }
 
 .divisore{
+  margin-bottom: 2vh;
  width: 45%;
- height: 45%;
+ height: fit-content;
 }
 .articolo{
   background-position: center;
@@ -235,7 +235,7 @@ div{
     padding :0px 5px;
 }
 .oggetto{
-  font-size: 1rem;
+  
   overflow: hidden;
     align-items: top;
     height: 70%;
@@ -264,12 +264,29 @@ div{
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .divisore{
-    width: 90%;
+    width: 100vw;
     margin-bottom: 5%;
    }
+   .descrizione a{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   .oggetto{
+    font-size: 5vw;
+   }
+   .divisore img {width: 35vw;
+                  height: 35vw;}
+  article{
+    overflow-x: hidden;
 
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    height: fit-content;
+    flex-direction: column;
+  }
 }
 input{
   width: 60%;
@@ -278,7 +295,7 @@ input{
 {
   .divisore{
     
-    height: 90%;
+    height: auto;
    }
 }
     
