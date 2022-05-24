@@ -44,6 +44,7 @@ if(!isset($_SESSION["username"]))
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Ricerca.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <script src="Ricerca.js" defer="true"></script>
 
 </head>

@@ -42,7 +42,7 @@ if(!isset($_SESSION["username"]))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="overlay.css" defer>
     <link rel="stylesheet" href="Profilo.css" defer>
-    
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <script src="Profilo.js" defer="true"></script>
 
 </head>

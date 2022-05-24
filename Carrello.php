@@ -37,7 +37,7 @@ if(!isset($_SESSION["username"]))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Carrello.css">
     <script src="Carrello.js" defer="true"></script>
-
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
 </head>
 <body>
     

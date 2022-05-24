@@ -18,7 +18,7 @@ if(isset($_SESSION["username"]) ||isset($_COOKIE["username"]))
     <title>
         Login
     </title>
-     
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Login.css">
     <script src="" defer="true"></script>

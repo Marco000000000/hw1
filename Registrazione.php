@@ -17,7 +17,7 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
     <title>
         Registrazione
     </title>
-     
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Registrazione.css">
     <script src="Registrazione.js" defer="true"></script>
