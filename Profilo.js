@@ -221,8 +221,10 @@ function onJson(json)
     }
         
     if(controllo_profilo.textContent!=json.username)
-    {   if(input!=null)
-           { img.removeEventListener("mouseover",onHover);
+    {   img.classList.remove("manina")
+        img.removeEventListener("mouseover",onHover);
+        if(input!=null)
+           { 
             input.remove();
     }
     button.classList.remove("hidden");

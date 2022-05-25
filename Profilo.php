@@ -84,7 +84,7 @@ if(!isset($_SESSION["username"]))
     <header>
         <div class="profilo">
             <form target="_myFrame" action="">
-            <label><input class="hidden" name="foto" type="file"></input><img src="<?php echo $img;?>"></label>
+            <label><input class="hidden" name="foto" type="file"></input><img class="manina" src="<?php echo $img;?>"></label>
             
             </form>
             <div class="dati">
