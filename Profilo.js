@@ -220,7 +220,7 @@ function onJson(json)
         immagine.src="images/profilo-vuoto.png";
     }
         
-    if(user!=json.username||controllo_profilo.textContent!=user)
+    if(controllo_profilo.textContent!=json.username)
     {   if(input!=null)
            { img.removeEventListener("mouseover",onHover);
             input.remove();
