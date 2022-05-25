@@ -138,6 +138,13 @@ function onLike(event){
     const id=event.currentTarget.closest("section").dataset.num;
     fetch("modificaLike.php?carrello="+id).then(onResponse1,onError).then(onText1);
 }
+function onDeleteCommento(event)
+{   const controllo_profilo=document.querySelector("a[href='Profilo.php']");
+    const commento=event.currentTarget.closest(".commento");
+    const id=commento.dataset.id;
+    fetch("eliminaCommento.php?id="+id+"&user="+controllo_profilo.textContent).then(onResponse1,onError).then(onText1);
+    commento.remove();
+}
 function onText1(text)
 {
     console.log(text);
@@ -146,6 +153,8 @@ function onText1(text)
 
 function onOverlay(json){
     console.log(json);
+    const controllo_profilo=document.querySelector("a[href='Profilo.php']");
+
     const body=document.querySelector("body");
     div=document.createElement("div");
     body.querySelector("article").classList.add("stop");
@@ -239,11 +248,23 @@ function onOverlay(json){
         const data=json.commenti[i];
         const commento=document.createElement("div");
         commento.classList.add("commento");
+        commento.dataset.id=data.id;
+        const div_commento=document.createElement("div");
         const strong=document.createElement("strong");
         const p_commento=document.createElement("p");
         p_commento.textContent=data.commento;
         strong.textContent=data.mittente;
-        commento.appendChild(strong);
+        div_commento.appendChild(strong);
+
+        if(data.mittente==controllo_profilo.textContent)
+        {
+            const basket=document.createElement("p");
+            basket.addEventListener("click",onDeleteCommento);
+            basket.textContent="🗑️";
+            div_commento.appendChild(basket);
+        }
+
+        commento.appendChild(div_commento);
         commento.appendChild(p_commento);
         commenti.appendChild(commento);
     }

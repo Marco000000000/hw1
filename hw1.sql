@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 25, 2022 alle 17:07
+-- Creato il: Mag 26, 2022 alle 01:55
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -83,7 +83,8 @@ CREATE TABLE `commenti` (
 --
 
 INSERT INTO `commenti` (`mittente`, `carrello`, `commento`, `id`) VALUES
-('root', 3, 'Davvero dei bei kit', 22);
+('root', 3, 'Davvero dei bei kit', 22),
+('admin', 5, 'commento casuale', 29);
 
 -- --------------------------------------------------------
 
@@ -203,9 +204,6 @@ INSERT INTO `prodotto-carrello` (`prodotto`, `carrello`, `quantita`) VALUES
 ('https://www.google.it/url?url=https://store.arduino.cc/products/arduino-uno-rev3-smd%3Fsrsltid%3DAWLEVJyG-MsPV9A0kpM56COQIszQ4OTxXb4ZbW2dr2QY0rEPZD-bvGlyTMk&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwj1oe_ku_j3AhXMKkQIHXogDZ8QguUECNII&usg=AOvVaw3-AnaAxwYG2WktHgzjd0N9', 3, 8),
 ('https://www.google.it/url?url=https://store.arduino.cc/products/arduino-uno-rev3/%3Fsrsltid%3DAWLEVJxInUPL436aIPwGR3ZPE0xW_J5lSGY_50_Tk08ByvniP1JSCN6JZ8Q&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwj1oe_ku_j3AhXMKkQIHXogDZ8QguUECMUI&usg=AOvVaw0G7YQVouaPAGAe7oOUcM3y', 3, 1),
 ('https://www.google.it/url?url=https://store.arduino.cc/products/arduino-uno-wifi-rev2%3Fsrsltid%3DAWLEVJz5S-mDS5t7FXw9r72N8Y7ZZEZBGbwI9VGNU2V_eWwe4nkf_z6dyrY&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwj1oe_ku_j3AhXMKkQIHXogDZ8QguUECOoI&usg=AOvVaw0ok7wyBFF4MRJga57zhoWh', 3, 1),
-('https://www.google.it/url?url=https://tuttocantiereonline.com/dispositivo-di-salvataggio-ed-evacuazione-sacco-tc013&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwi94di00Pj3AhU0p3IEHbV1AtoQgOUECLwI&usg=AOvVaw0zR_DycBM3kYkL-YHUf3wa', 1, 1),
-('https://www.google.it/url?url=https://www.decathlon.it/p/giubbotto-salvataggio-bambino-lj100n-easy-arancione-grigio/_/R-p-311034%3Fmc%3D8569209%26utm_medium%3Dorganic-shopping&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwi94di00Pj3AhU0p3IEHbV1AtoQ_uQECLAI&usg=AOvVaw3gv9-1-4_WzE0MQKFPNyCL', 1, 1),
-('https://www.google.it/url?url=https://www.decathlon.it/p/giubbotto-salvataggio-storm-100n/_/R-p-X8161467%3Fmc%3D8161467%26utm_medium%3Dorganic-shopping&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwi94di00Pj3AhU0p3IEHbV1AtoQ_uQECJEI&usg=AOvVaw1R8QJoVoD7m8drfUYLh3pf', 1, 1),
 ('https://www.google.it/url?url=https://www.ebay.it/itm/313983878485%3Fvar%3D0&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwig1ZWDzfj3AhXfj3IEHYSgBp4QgOUECMUJ&usg=AOvVaw20O3_J5wFrGLr2OXuUC-Sz', 4, 6),
 ('https://www.google.it/url?url=https://www.ebay.it/itm/363733439849%3Fchn%3Dps%26mkevt%3D1%26mkcid%3D28&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwiU8oHnzvj3AhVIhHIEHfpZA_IQguUECJ4I&usg=AOvVaw3rpSTFW_9iky8gP-JtmFUl', 5, 1),
 ('https://www.google.it/url?url=https://www.edilizia-valenti.com/prodotto/outlet-computer-outsider-pc-fisso-completo-intel-i5-ram-8gb-ssd-240-gb-monitor-24-pollici-tastiera-e-mouse-usb-casse-audio/&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwiU8oHnzvj3AhVIhHIEHfpZA_IQgOUECPEH&usg=AOvVaw3vednmnw2N5gpgfw9Y4dPM', 5, 1),
@@ -216,7 +214,6 @@ INSERT INTO `prodotto-carrello` (`prodotto`, `carrello`, `quantita`) VALUES
 ('https://www.google.it/url?url=https://www.gautoparts.it/it/prod/box-marathon-400-lt-dark-marathon400dark/1356598&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwig1ZWDzfj3AhXfj3IEHYSgBp4QguUECOsJ&usg=AOvVaw3bHKjsGa37y39_9o1wEyFi', 4, 1),
 ('https://www.google.it/url?url=https://www.ibs.it/pc-fisso-computer-i5-quad-informatica-nonsoloinformatica/e/8052679510115%3Flgw_code%3D1122-W8052679510115&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwiU8oHnzvj3AhVIhHIEHfpZA_IQguUECIcI&usg=AOvVaw1ERoEmQ1FEY0coFYMVKDTj', 5, 1),
 ('https://www.google.it/url?url=https://www.klavius.it/catalogo/prodotti/00TUF9212O%3Fsrsltid%3DAWLEVJzSLug0ZNtOmTHPP7FFyllA7pnWdTL45qyKh2H-Rr8bOflhZhYE5JE&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwig1ZWDzfj3AhXfj3IEHYSgBp4QguUECPcJ&usg=AOvVaw1vSuKKkhRu-rmHbfA6xo02', 4, 1),
-('https://www.google.it/url?url=https://www.muziker.it/lalizas-chico-lifejacket-15-30kg&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwi94di00Pj3AhU0p3IEHbV1AtoQguUECJ8I&usg=AOvVaw3MLfOWRymuJ-Au2qRQRUS5', 1, 1),
 ('https://www.google.it/url?url=https://www.nonsoloinformatica.com/computer-pc-fisso-i7-quad-core-windows-10-pro-16gb-ram-ssd-240gb-hd-1tb-wifi/id/252642%26r%3Dgoogle-shopping&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwiU8oHnzvj3AhVIhHIEHfpZA_IQguUECOUH&usg=AOvVaw2JkveBGyT5lEAW1iGRfanW', 5, 1),
 ('https://www.google.it/url?url=https://www.opendeel.com/product/cartrend-10904-rampa-per-auto-2t-1-pezzo-Iwz9xoABKN7S1C5hVAuN.html%3Ff%3Dgm&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwig1ZWDzfj3AhXfj3IEHYSgBp4QguUECK4J&usg=AOvVaw3aE_iODhxDn1s-bBTaltHS', 4, 1),
 ('https://www.google.it/url?url=https://www.ricambi-smc.it/ricambi-auto/prodotti/batteria-auto-speed-max-75ah-680a-12v-l3b/1097478&rct=j&q=&esrc=s&sa=U&ved=0ahUKEwig1ZWDzfj3AhXfj3IEHYSgBp4QguUECKEJ&usg=AOvVaw3flrTmO36_9wWSZJ_CThaT', 4, 1),
@@ -375,7 +372,7 @@ ALTER TABLE `segui`
 -- AUTO_INCREMENT per la tabella `commenti`
 --
 ALTER TABLE `commenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Limiti per le tabelle scaricate

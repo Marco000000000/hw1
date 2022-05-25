@@ -96,7 +96,7 @@
             $commenti=[];
             $cont=0;
             foreach($res as $row)
-            {
+            {   $commento["id"]=$row["id"];
                 $commento["mittente"]=$row["mittente"];
                 $commento["commento"]=$row["commento"];
                 /*echo '<div class="commento">

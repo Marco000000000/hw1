@@ -385,7 +385,9 @@ justify-content: center;
   background-color:orange;
 }
 .hidden{display: none;}
-
+.space{
+  justify-content: space-between;
+}
 @media (max-width: 700px) {
   header h1{
     padding-left: 15%;

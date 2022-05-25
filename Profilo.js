@@ -38,6 +38,8 @@ function onClose()
 }
 function onOverlay(json){
     console.log(json);
+    const controllo_profilo=document.querySelector("a[href='Profilo.php']");
+
     const body=document.querySelector("body");
     div=document.createElement("div");
     body.querySelector("article").classList.add("stop");
@@ -129,11 +131,23 @@ function onOverlay(json){
         const data=json.commenti[i];
         const commento=document.createElement("div");
         commento.classList.add("commento");
+        commento.dataset.id=data.id;
+        const div_commento=document.createElement("div");
         const strong=document.createElement("strong");
         const p_commento=document.createElement("p");
         p_commento.textContent=data.commento;
         strong.textContent=data.mittente;
-        commento.appendChild(strong);
+        div_commento.appendChild(strong);
+
+        if(data.mittente==controllo_profilo.textContent)
+        {
+            const basket=document.createElement("p");
+            basket.addEventListener("click",onDeleteCommento);
+            basket.textContent="🗑️";
+            div_commento.appendChild(basket);
+        }
+
+        commento.appendChild(div_commento);
         commento.appendChild(p_commento);
         commenti.appendChild(commento);
     }
@@ -181,6 +195,13 @@ function onLike(event){
     const id=event.currentTarget.closest("section").dataset.num;
     fetch("modificaLike.php?carrello="+id).then(onResponse1,onError).then(onText1);
 }
+function onDeleteCommento(event)
+{   const controllo_profilo=document.querySelector("a[href='Profilo.php']");
+    const commento=event.currentTarget.closest(".commento");
+    const id=commento.dataset.id;
+    fetch("eliminaCommento.php?id="+id+"&user="+controllo_profilo.textContent).then(onResponse1,onError).then(onText1);
+    commento.remove();
+}
 function onClick(event){
     const id=event.currentTarget.closest("section").dataset.num;
     carrelloAttuale=id;
@@ -199,6 +220,7 @@ function onJson(json)
 {   console.log(json);
     if(json==0)
         return;
+    const selected=document.querySelector(".selected");
     const immagine=document.querySelector("form img");
      username=document.querySelector(".dati h1");
     const controllo_profilo=document.querySelector("a[href='Profilo.php']");
@@ -241,7 +263,10 @@ function onJson(json)
         
         button.classList.remove("selected");
     }
-    
+    /*<div class="opzioni">
+    <p>🗑️</p>
+    <div class="like"><p>1</p><p class="hearth">❤️</p>
+<img class="schermo_intero" src="images/Schermo_Intero.png"></div></div> */
     for(let i=0;i<json.length;i++ )
     {   const data=json[i];
         const section=document.createElement("section");
@@ -316,6 +341,8 @@ function onJson(json)
         const p_like=document.createElement("p");
         p_like.textContent=data.likes;
         const hearth=document.createElement("p");
+        
+        
         hearth.classList.add("hearth");
         hearth.textContent=data.emoji;
         hearth.addEventListener("click",onLike);
@@ -325,15 +352,31 @@ function onJson(json)
         schermo_intero.addEventListener("click",onClick);
         like.appendChild(p_like);
         like.appendChild(hearth);
+        like.appendChild(schermo_intero);
+        if(selected.id=="pub"&&controllo_profilo.textContent==json.username)
+        {
+            const basket=document.createElement("p");
+            basket.textContent="🗑️";
+            basket.addEventListener("click",onDelete);
+            opzioni.appendChild(basket);
+            opzioni.classList.add("space");
+        }
         opzioni.appendChild(like);
-        opzioni.appendChild(schermo_intero);
+        
+        
         section.appendChild(header);
         section.appendChild(bordo);
         section.appendChild(opzioni);
         article.appendChild(section);
     }
 }
-
+function onDelete(event)
+{   
+    const controllo_profilo=document.querySelector("a[href='Profilo.php']");
+    const section=event.currentTarget.closest("section");
+    fetch("eliminaCarrello.php?carrello="+section.dataset.num+"&user="+controllo_profilo.textContent).then(onResponse1).then(onText1);
+    section.remove();
+}
 function onLeave(event)
 {
     event.target.src=imgsrc;
