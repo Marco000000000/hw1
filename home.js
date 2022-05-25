@@ -7,7 +7,10 @@ function onError(error)
 {
     console.log('Error: ' + error);
 }
-   
+function onSession(event)
+{
+    window.sessionStorage.setItem("profilo",event.currentTarget.dataset.profilo);
+}   
 
 function onJson(json)
 {   console.log(json);
@@ -22,6 +25,10 @@ function onJson(json)
         header.classList.add("header");
         const condivisore=document.createElement("div");
         condivisore.classList.add("condivisore");
+        const link=document.createElement("a");
+        link.dataset.profilo=data.proprietario;
+        link.href="Profilo.php";
+        link.addEventListener("click",onSession);
         const immagineProfilo=document.createElement("img");
         if(data.ImmagineProfilo!=null)
         {
@@ -45,7 +52,8 @@ function onJson(json)
         p_proprietario.appendChild(em);
         const strong_totale=document.createElement("strong");
         strong_totale.textContent=data.Totale+"€";
-        condivisore.appendChild(immagineProfilo);
+        link.appendChild(immagineProfilo);
+        condivisore.appendChild(link);
         condivisore.appendChild(p_proprietario);
         header.appendChild(condivisore);
         header.appendChild(strong_totale);

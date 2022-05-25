@@ -190,14 +190,18 @@ function onError(error)
 {
     console.log('Error: ' + error);
 }
-   
+function onSession(event)
+{
+    window.sessionStorage.setItem("profilo",event.currentTarget.dataset.profilo);
+}  
+
 function onJson(json)
 {   console.log(json);
     if(json==0)
         return;
     const immagine=document.querySelector("form img");
      username=document.querySelector(".dati h1");
-
+    const controllo_profilo=document.querySelector("a[href='Profilo.php']");
      const follower=document.querySelector(".segui p");
     const button=document.querySelector(".segui button");
     const article=document.querySelector("article");
@@ -216,7 +220,7 @@ function onJson(json)
         immagine.src="images/profilo-vuoto.png";
     }
         
-    if(user!=json.username)
+    if(user!=json.username||controllo_profilo.textContent!=user)
     {   if(input!=null)
            { img.removeEventListener("mouseover",onHover);
             input.remove();
@@ -244,6 +248,10 @@ function onJson(json)
         header.classList.add("header");
         const condivisore=document.createElement("div");
         condivisore.classList.add("condivisore");
+        const link=document.createElement("a");
+        link.dataset.profilo=data.proprietario;
+        link.href="Profilo.php";
+        link.addEventListener("click",onSession);
         const immagineProfilo=document.createElement("img");
         if(data.ImmagineProfilo!=null)
         {
@@ -272,7 +280,8 @@ function onJson(json)
         p_proprietario.appendChild(em);
         const strong_totale=document.createElement("strong");
         strong_totale.textContent=data.Totale+"€";
-        condivisore.appendChild(immagineProfilo);
+        link.appendChild(immagineProfilo);
+        condivisore.appendChild(link);
         condivisore.appendChild(p_proprietario);
         header.appendChild(condivisore);
         header.appendChild(strong_totale);
@@ -446,7 +455,18 @@ input.addEventListener("input",uploadFile);
 const img=document.querySelector(".profilo img");
 let imgsrc=img.src;
 img.addEventListener("mouseover",onHover);
-const user=document.querySelector("a[href='Profilo.php']").textContent;
+let user;
+if(window.sessionStorage.getItem("profilo")!=null)
+{
+     user=window.sessionStorage.getItem("profilo");
+    window.sessionStorage.removeItem("profilo");
+
+}
+else
+{
+     user=document.querySelector("a[href='Profilo.php']").textContent;
+
+}
 
 let username;
 fetch("profiloData.php?cerca="+user+
