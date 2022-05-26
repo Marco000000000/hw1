@@ -31,7 +31,7 @@ CREATE TABLE `carrello` (
   `ID` int(11) NOT NULL,
   `proprietario` varchar(20) NOT NULL,
   `Totale` float DEFAULT 0,
-  `Nome` varchar(25) DEFAULT NULL,
+  `Nome` varchar(255) DEFAULT NULL,
   `Descrizione` varchar(255) DEFAULT NULL,
   `likes` int(11) DEFAULT 0,
   `data` datetime DEFAULT current_timestamp()
