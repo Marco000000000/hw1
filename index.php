@@ -17,8 +17,9 @@ if(isset($_SESSION["username"])||isset($_COOKIE["username"]))
         Home
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="overlay.css">
+    <link rel="stylesheet" href="home.css">
+   
     <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <script src="index.js" defer="true"></script>
 

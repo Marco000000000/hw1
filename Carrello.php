@@ -80,7 +80,7 @@ if(!isset($_SESSION["username"]))
     <article>
         
         <div class="divisore">
-        <?php 
+        <?php /*
 
         
         $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
@@ -142,14 +142,14 @@ if(!isset($_SESSION["username"]))
 
         
          
-         ?>
+         */?>
         </div>
 
 
          <section class="totale">
             <div>
                 <p>
-                    <strong>Totale:&nbsp</strong><em><?php echo $totale;?>€</em>
+                    <strong>Totale:&nbsp</strong><em><?php /*echo $totale;*/?>€</em>
                 </p>
             </div>
             <div class="pubblica">

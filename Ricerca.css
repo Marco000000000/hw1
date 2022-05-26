@@ -111,7 +111,6 @@ nav a {
   padding-top: 80px;
   display: flex;
   justify-content: right;
-  align-items: top;
 
 } 
 a:hover{
@@ -174,7 +173,6 @@ article{
   flex-wrap: wrap;
  display: flex;
  height: 100%;
- align-items: top;
  justify-content: space-around;
 }
 div{
@@ -237,7 +235,6 @@ div{
 .oggetto{
   
   overflow: hidden;
-    align-items: top;
     height: 70%;
     padding:1%;
     justify-content: space-between;

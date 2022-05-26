@@ -106,7 +106,6 @@ html{
     padding-top: 80px;
     display: flex;
     justify-content: right;
-    align-items: top;
   
   } 
   nav a:hover{
@@ -198,7 +197,6 @@ html{
     margin:1%;
     display: flex;
     justify-content: space-between;
-    align-items: top;
   }
   .condivisore{
     display: flex;
