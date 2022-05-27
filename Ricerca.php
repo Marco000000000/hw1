@@ -15,7 +15,7 @@ if(!isset($_SESSION["username"]))
 
     if(isset($_POST["cerca"]))
     {
-        setcookie("cerca",$_POST["cerca"]);
+        $_SESSION["cerca"]=$_POST["cerca"];
           
     }
 
