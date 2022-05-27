@@ -119,7 +119,8 @@ function onChange(event)
     let prezzo=articolo.querySelector("#prezzo").textContent;
     prezzo=prezzo.substring(0, prezzo.length - 1);
     totale.textContent=(parseFloat(totale.textContent.substring(0, totale.textContent.length-1))-prezzo*quantita_precedente+prezzo*quantita).toFixed(2)+"€";
-   
+    quantita_precedenti[articolo.dataset.num]=quantita;
+
     fetch("cambiaQuantita.php?"+
     "&quantita="+encodeURIComponent(quantita)+
     "&user="+encodeURIComponent(user)+
