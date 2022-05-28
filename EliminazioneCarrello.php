@@ -6,7 +6,8 @@
 
 if(isset($_GET["link"])&&isset($_GET["user"]))   
 {echo $_GET["user"];
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
     $user=mysqli_real_escape_string($conn,$_GET["user"]);
    
     $link=mysqli_real_escape_string($conn,$_GET["link"]);

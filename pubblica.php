@@ -2,7 +2,8 @@
 if(isset($_GET["descrizione"])&&isset($_GET["titolo"])&&isset($_GET["totale"])&&isset($_GET["user"]))   
 {
     //echo $_GET["descrizione"];
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
     $titolo=mysqli_real_escape_string($conn,$_GET["titolo"]);
     $totale=mysqli_real_escape_string($conn,$_GET["totale"]);
     $descrizione=mysqli_real_escape_string($conn,$_GET["descrizione"]);

@@ -13,7 +13,8 @@ if(!isset($_SESSION["username"]))
         
     }
     $query="select ImmagineProfilo as img from profilo where Username='".$_SESSION["username"]."'";
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
     $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
     $row=mysqli_fetch_assoc($res);
     if(isset($row["img"]))

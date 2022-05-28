@@ -13,7 +13,9 @@ if(!isset($_SESSION["username"]))
         
     }
     $query="select ImmagineProfilo as img from profilo where Username='".$_SESSION["username"]."'";
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
+    $carrello=mysqli_real_escape_string($conn,$_GET["carrello"]);
     $res= mysqli_query($conn,$query) or die("Errore:".mysqli_error($conn));
     $row=mysqli_fetch_assoc($res);
     if(isset($row["img"]))
@@ -83,7 +85,6 @@ if(!isset($_SESSION["username"]))
         <?php 
 
         
-        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
         $username=$_SESSION["username"];
 
         $query='SELECT * FROM `prodotti` JOIN `prodotto-carrello` on( url=prodotto) JOIN carrello on(id=carrello) join profilo on(id=carrelloCorrente) WHERE proprietario="'.$username.'"';

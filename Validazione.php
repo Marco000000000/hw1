@@ -19,8 +19,9 @@ session_start();
 
             if((!contains($_GET["utente"],$specialChars))&& ((contains($_GET["password"],$num))&&(contains(strtolower($_GET["password"]),$letters))))
             {   
-                $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-
+                include 'dbconfig.php';
+                $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
+            
                 $utente=mysqli_real_escape_string($conn,$_GET["utente"]);
                 $password=mysqli_real_escape_string($conn,$_GET["password"]);
                 $email=mysqli_real_escape_string($conn,$_GET["email"]);

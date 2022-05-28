@@ -7,7 +7,8 @@
 if(isset($_GET["descrizione"])&&isset($_GET["img"])&&isset($_GET["link"])&&isset($_GET["prezzo"])&&isset($_GET["venditore"]))   
 {
     //echo $_GET["descrizione"];
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
     $user=mysqli_real_escape_string($conn,$_GET["user"]);
     $descrizione=mysqli_real_escape_string($conn,$_GET["descrizione"]);
     $img=mysqli_real_escape_string($conn,$_GET["img"]);

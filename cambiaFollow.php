@@ -3,7 +3,8 @@ session_start();
 if(isset($_GET["seguito"])&&isset($_SESSION["username"]))   
 {
     //echo $_GET["descrizione"];
-    $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+    include 'dbconfig.php';
+    $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
     $seguito=mysqli_real_escape_string($conn,$_GET["seguito"]);
     $user=mysqli_real_escape_string($conn,$_SESSION["username"]);
     $querycontrollo="Select * from segui where seguace='$user' and seguito='$seguito'";

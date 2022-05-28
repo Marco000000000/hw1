@@ -6,8 +6,9 @@
   
 
         
-        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-        
+                include 'dbconfig.php';
+                $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
+                    
         $username=mysqli_real_escape_string($conn,$_GET["username"]);
         $data=[];
         $query='SELECT * FROM `prodotti` JOIN `prodotto-carrello` on( url=prodotto) JOIN carrello on(id=carrello) join profilo on(id=carrelloCorrente) WHERE proprietario="'.$username.'"';

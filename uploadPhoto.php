@@ -4,7 +4,8 @@ if(isset($_FILES['file']['name'])){
    session_start();
 
    $filename = $_FILES['file']['name'];
-   $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
+   include 'dbconfig.php';
+   $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
 
    $filename=mysqli_real_escape_string($conn, $filename);
    // Location

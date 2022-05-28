@@ -32,8 +32,9 @@ if(isset($_SESSION["username"]) ||isset($_COOKIE["username"]))
             <?php
 if(isset($_POST["utente"])&&isset($_POST["password"]))   
     {
-        $conn=mysqli_connect("localhost","root","","hw1") or die("Errore:".mysqli_connect_error());
-        //print_r($_POST);
+        include 'dbconfig.php';
+        $conn = mysqli_connect($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['name']) or die(mysqli_connect_error($conn));
+            //print_r($_POST);
 
         $utente=mysqli_real_escape_string($conn, $_POST["utente"]);
         $password=mysqli_real_escape_string($conn, $_POST["password"]);
