@@ -141,6 +141,9 @@ label{
   justify-content: space-between;
   align-items: center;
 }
+.opzioni{
+  cursor: pointer;
+}
 nav input{
   width: 400px;
   display: inline-block;
@@ -283,6 +286,7 @@ p{margin: 0px;
   height: 100%;
 }
 .pubblica input[type="submit"] {
+  cursor: pointer;
   background-color: #0095f6;
       color: white;
       border-width: 1px;

@@ -122,7 +122,9 @@ nav a:active{
   background-color: orange;
   height: 100%;
 }
-
+.carrello{
+  cursor: pointer;
+}
 form{
   position: sticky;
   width: 568px;

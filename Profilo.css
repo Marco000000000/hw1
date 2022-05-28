@@ -362,6 +362,16 @@ html{
     
      
 }
+.space p{ cursor: pointer;}
+.hearth{
+  cursor: pointer;
+}
+.schermo_intero{
+  cursor: pointer;
+}
+.scelta{
+  cursor: pointer;
+}
 #pub{
   border-bottom-left-radius: 10px;
   
