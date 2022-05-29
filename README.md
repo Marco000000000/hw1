@@ -12,3 +12,5 @@ Nel sito è possibile pubblicare sia carrelli che commenti ai carrelli stessi,gl
 aggiungere gli elementi degli altri carrelli al proprio e altro ancora.
 ### Informazioni sulle directory e sui file principali:
 All'interno del file *hw1.sql* si trova l'esportazione del database, come da richiesta.
+All'interno di images si trovano le immagini necessarie per la costruzione del sito stesso.
+Nella cartella upload si trovano gli upload delle immagini di profilo dei singoli utenti.
