@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2022 alle 01:55
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 8.0.12
+-- Creato il: Mag 29, 2022 alle 11:10
+-- Versione del server: 10.4.24-MariaDB
+-- Versione PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,6 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `hw1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `hw1`;
+
 -- --------------------------------------------------------
 
 --
@@ -330,7 +331,8 @@ ALTER TABLE `carrello`
 -- Indici per le tabelle `commenti`
 --
 ALTER TABLE `commenti`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `commenti_ibfk_1` (`mittente`);
 
 --
 -- Indici per le tabelle `piaciuti`
@@ -395,7 +397,9 @@ ALTER TABLE `commenti`
 -- Limiti per la tabella `piaciuti`
 --
 ALTER TABLE `piaciuti`
-  ADD CONSTRAINT `piaciuti_ibfk_1` FOREIGN KEY (`mittente`) REFERENCES `profilo` (`Username`);
+  ADD CONSTRAINT `piaciuti_ibfk_1` FOREIGN KEY (`mittente`) REFERENCES `profilo` (`Username`) ON DELETE CASCADE;
+ALTER TABLE `piaciuti`
+  ADD CONSTRAINT `piaciuti` FOREIGN KEY (`carrello`) REFERENCES `carrello` (`ID`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `prodotto-carrello`
