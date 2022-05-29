@@ -392,6 +392,8 @@ ALTER TABLE `carrello`
 --
 ALTER TABLE `commenti`
   ADD CONSTRAINT `commenti_ibfk_1` FOREIGN KEY (`mittente`) REFERENCES `profilo` (`Username`);
+ALTER TABLE `commenti`
+  ADD CONSTRAINT `commenti` FOREIGN KEY (`carrello`) REFERENCES `carrello` (`ID`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `piaciuti`
