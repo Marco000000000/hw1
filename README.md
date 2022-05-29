@@ -7,8 +7,8 @@ Password: admin1
 ### Informazioni utili sul progetto
 Il sito tratta di un social basato sulla condivisione di carrelli
 con un insieme di prodotti ricercabili ,tramite le api rest di SerpApi, in google shopping.
-Nel sito è possibile pubblicare sia carrelli che commenti ai carrelli stessi,gli ultimi tramite modale
-è possibile seguire gli altri utenti , mettere like ,cercare dei carrelli nel database,
+Nel sito è possibile pubblicare sia carrelli che commenti ai carrelli stessi,gli ultimi tramite modale.
+È possibile seguire gli altri utenti , mettere like ,cercare dei carrelli nel database,
 aggiungere gli elementi degli altri carrelli al proprio e altro ancora.
 ### Informazioni sulle directory e sui file principali:
 All'interno del file *hw1.sql* si trova l'esportazione del database, come da richiesta.
